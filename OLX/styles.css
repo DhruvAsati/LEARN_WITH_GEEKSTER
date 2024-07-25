@@ -1,7 +1,9 @@
 /* styles.css */
 
-body {
+* {
+    padding: 0;
     margin: 0;
+    box-sizing: content-box;
     font-family: Arial, sans-serif;
 }
 
@@ -22,13 +24,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-   
     position: relative;
       
 }
 nav{
     width: 100%;
-    height: 1.5rem;
+    height: 2.5rem;
     margin: 0;
 }
 .container-bottom{
@@ -454,4 +455,315 @@ footer {
     color: #fff;
     font-size: 0.7rem;
     text-align: right;
+}
+
+/* Media queries */
+
+@media (max-width:1090px) {
+    /* For screens smaller than 992px */
+    *{
+        box-sizing: content-box;
+    }
+    .top-nav{
+        width: 100%;
+        align-items: flex-start;
+    }
+
+   .recommendations {
+        display: flex ;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+   .recommendation {
+        width: 25%;
+        margin: 10px;
+    }
+   .app-links-img {
+    border-left: none;
+    
+   }
+   .section {
+    flex: 1;
+    margin-bottom: 20px;
+    }
+    footer {
+    flex-direction: column;
+    }
+    footer.container-footer {
+    flex-direction: column;
+    }
+    footer .section {
+    margin-bottom: 0;
+    }
+    footer .social-icons li {
+    margin-left: 0;
+    margin-bottom: 10px;
+    }
+    footer .follow-us{
+    margin-bottom: 0;
+    }
+    footer .app-stores {
+    text-align: left;
+    }
+    footer .company-container {
+    flex-direction: column;
+    }
+    footer .company-container.logo-container {
+    border-right: none;
+    }
+    footer .company-container.links-container {
+    flex-direction: column;
+    }
+    footer .reserved p{
+    padding-right: 0;
+    }
+    footer .reserved p::after {
+    content: "";
+    display: block;
+    clear: both;
+    }
+    footer .reserved p::before {
+    content: "";
+    display: table;
+    clear: both;
+    }
+ 
+
+}
+
+@media (max-width: 850px) {
+    /* For screens smaller than 768px */
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .top-nav{
+        width: 100%;
+    }
+    .recommendations {
+        margin-top: 2rem;
+        display: flex ;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+   .recommendation {
+        width: 25%;
+        margin: 10px;
+    }
+    .container-bottom{
+        width: 100%;
+        height: fit-content;
+    }
+    .app-links-img {
+        border-left: none;
+        
+    }
+    .section {
+        flex: 1;
+        margin-bottom: 20px;
+    }
+    footer {
+        flex-direction: column;
+    }
+    footer .container-footer {
+        flex-direction: column;
+    }
+    footer .section {
+        margin-bottom: 0;
+    }
+    footer .social-icons li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    footer .follow-us{
+        margin-bottom: 0;
+    }
+    footer .app-stores {
+        text-align: left;
+    }
+    footer .company-container {
+        flex-direction: column;
+    }
+    footer .company-container .logo-container {
+        border-right: none;
+    }
+    footer .company-container .links-container {
+        flex-direction: row;
+    }
+    footer .reserved p{
+        padding-right: 0;
+    }
+    footer .reserved p::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    footer .reserved p::before {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* Responsive font size for smaller screens */
+    h1, h2, h3, p {
+        font-size: 1.4rem;
+    }
+    footer h3 {
+        font-size: 1.2rem;
+    }
+    footer p {
+        font-size: 1rem;
+    }
+    footer .social-icons li {
+        margin-bottom: 5px;
+    }
+    footer .follow-us{
+        margin-bottom: 5px;
+    }
+    footer .app-stores {
+        padding-left: 0;
+    }
+    footer .company-container.links-container img {
+        width: 120px;
+        height: auto;
+    }
+    footer .company-container.links-container a {
+        margin-right: 10px;
+    }
+    footer.reserved p {
+        font-size: 0.8rem;
+    }
+   
+    footer .company-container .logo-container img {
+        width: 150px;
+    }
+    footer .company-container .links-container img {
+        width: 100px;
+        height: auto;
+        display: flex;
+    }
+    footer .company-container .links-container a {
+        margin-right: 0;
+    }
+    footer .reserved p {
+        padding-right: 0;
+    }
+    footer .reserved p::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+}
+
+@media (max-width: 576px) {
+    /* For screens smaller than 576px */
+   .recommendations {
+        flex-direction: column;
+
+   }
+    .recommendation {
+        width: 100%;
+        margin: 10px 0;
+    }
+    .app-links-img {
+        border-left: none;
+        
+    }
+    .location-search{
+        display: none;
+    }
+    .search{
+        display: none;
+    }
+    .search-button{
+        margin: 0 10px;
+    }
+    .section {
+        flex: 1;
+        margin-bottom: 20px;
+    }
+    .download-section{
+        width: 100%;
+        height: fit-content;
+        padding: 0;
+        margin: 0;
+    }
+    .download-header{
+        width: 100%;
+    }
+    .download-header h2{
+        font-size: 1.2rem;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-size: 1.3rem;
+    }
+    .download-section img{
+        width: 80%;
+    }
+    
+    .links-container{
+        width: 100%;
+        height: fit-content;
+        flex-direction: column;
+    }
+    .links-container{
+        width: 20%;
+        margin-right: 10px;
+    }
+    footer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: fit-content;
+    }
+    footer .container-footer {
+        flex-direction: column;
+    }
+    footer .section {
+        margin-bottom: 0;
+    }
+    footer .social-icons li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    footer .follow-us{
+        margin-bottom: 0;
+    }
+    footer .app-stores {
+        text-align: left;
+    }
+    footer .company-container {
+        flex-direction: column;
+        height: fit-content;
+    }
+    footer .company-container .logo-container {
+        border-right: none;
+    }
+    footer .company-container .links-container {
+         display: flex ;
+         flex-direction: column;
+         font-size: 1.5rem;
+    }
+   
+}
+
+@media (max-width: 320px) {
+    /* For screens smaller than 320px */
+   .recommendations {
+        flex-direction: column;
+   }
+    .recommendation {
+        width: 100%;
+        margin: 10px 0;
+    }
+    .app-links-img {
+        border-left: none;
+        
+    }
+    .section {
+        flex: 1;
+        margin-bottom: 20px;
+    }
+
 }
