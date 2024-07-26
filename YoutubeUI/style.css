@@ -146,6 +146,7 @@ section{
 }
 .head-sec{
     display: flex;
+    flex-wrap: wrap;
     list-style-type: none;
     margin-bottom: 10px;
 }
@@ -228,12 +229,12 @@ section{
     background-color: var(--grey);
 }
 
-@media(max-width:600px){
+@media(max-width:650px){
     .logo{
        display: none;
     }
     .header{
-        width: 100%;
+        width: 80%;
     }
     #search-bar{
         display: none;
@@ -244,9 +245,11 @@ section{
     .video-section .video{
         width: 100%;
     }
+    .menu:hover + .side-bar, 
     .menu:active + .side-bar{
-        display: initial;
+        display: block;
         width: 20%;
-
+        position: relative;
     }
+    
 }
