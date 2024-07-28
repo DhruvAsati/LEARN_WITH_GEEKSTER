@@ -18,6 +18,16 @@
             background-color: #2323de;
             height: 100vh;
         }
+        .heading{
+            font-size: 2rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0,0,0);
+            letter-spacing: 10px;
+            text-transform: uppercase;
+        }
         .birth-date-section{
             width: 40vw;
             height: 6rem;
@@ -77,6 +87,10 @@
     </style>
 </head>
 <body>
+
+    <h1 class="heading">
+        Age Calculator
+    </h1>
     
     <div class="birth-date-section">
         <input type="date" name="date" id="birth-date-selector">
@@ -88,11 +102,11 @@
     <div class="calculated-date">
         <div class="date">
                 <p class="calculated-dateNum">-</p>
-            <p class="text">Year</p>
+            <p class="text">Years</p>
         </div>
         <div class="month">
                <p class="calculated-month">-</p>
-            <p class="text">Month</p>
+            <p class="text">Months</p>
         </div>
         <div class="days">
                  <p class="calculated-days">-</p>
