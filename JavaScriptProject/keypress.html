@@ -60,6 +60,7 @@
     </div>
     <div id="result">
     </div>
+    <audio src="./Audio/audio.mp3" id="keySound"></audio>
     
 
     <script>
@@ -67,11 +68,17 @@
         const pressedKey = document.getElementById("pressed");
         const result = document.getElementById("result");
 
-        document.addEventListener("keydown", (event) => {
+        document.addEventListener("keypress", (event) => {
             textChanger.textContent = "Key Pressed: ";
             pressedKey.textContent = event.key;
-            result.textContent = event.keyCode;
+           result.textContent = event.keyCode;         
 
+        });
+
+        window.addEventListener('keypress', function(event) {
+            const keySound = document.getElementById('keySound');
+            keySound.currentTime = 0;
+            keySound.play();
         });
     </script>
 </body>
