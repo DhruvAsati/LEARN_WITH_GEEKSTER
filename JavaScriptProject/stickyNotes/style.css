@@ -14,18 +14,39 @@
     background-color:beige;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
     
    
 }
+.sticky-heading{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    animation-name: color-flow;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes color-flow{
+    0% {
+        color: red;
+    }
+    50% {
+        color: blue;
+    }
+    100% {
+        color: red;
+    }
+}
 
 .note-writer{
     width: 80%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    margin-top: 10vw;
     margin-left: 5vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items :center;
     animation-name: zoom-out;
     animation-delay: 0.5s;
     animation-duration: 1s;
@@ -55,7 +76,7 @@ textarea{
    box-shadow: 0px 0px 3px 3px rgb(224, 175, 175);
 }
 #add-note-btn{
-    margin: 2rem 5vw;
+    margin: 3rem 5vw;
     padding: 1.2rem 2rem;
     border-radius: 30px;
     font-weight: 600;
