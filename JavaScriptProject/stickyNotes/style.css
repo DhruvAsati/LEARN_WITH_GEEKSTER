@@ -87,7 +87,7 @@ textarea{
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 .notes-display .header h1{
     text-align: center;

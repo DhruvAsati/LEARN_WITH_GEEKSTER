@@ -29,7 +29,7 @@ addNotesBtn.addEventListener("click", function() {
     applyStyles(newNoteDiv, {
         width: "200px",
         height: "200px",
-        margin: "10px",
+        marginLeft: "10px",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "flex-start",
