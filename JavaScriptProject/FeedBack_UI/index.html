@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FeedBack UI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #b8adad;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+       .container {
+          width: 400px; 
+          height: 300px;
+          background-color: aliceblue;
+          border-radius: 10px;
+          box-shadow: 0 0 10px 0 rgba(0,0,0, 0.5);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+
+       }
+       .feedbacks{
+            width: 80%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+       }
+       .flex{
+          width: 30%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 1rem;
+       }
+       .flex:hover{
+            background-color: #66ccff;
+            transition: background-color 0.3s ease-in-out;
+            border-radius: 5px;
+            box-shadow: 0 0 10px 0 rgba(0,0,0, 0.8);
+             .text, .text-happy, .text-neutral{
+                color: rgb(213, 35, 65);
+            }
+       }
+       .face{
+          font-size: 48px;
+          margin-bottom: 10px;
+          cursor: pointer;
+       }
+       .text, .text-happy, .text-neutral{
+          font-size: 1.2rem;
+          color: rgb(32, 164, 164);
+          cursor: pointer;
+
+       }
+       h3{
+          font-size: 2rem;
+       }
+       h2{
+         font-size: 1.5rem;
+       }
+
+       p{
+          font-size: 1.2rem;
+       }
+       button{
+           padding: 1rem 2rem;
+           color: white;
+           background-color: #4CAF50;
+           cursor: pointer;
+       }
+       .submitted-feedback-unhappy, .submitted-feedback-neutral, .submitted-feedback-happy{
+          background-color: rgb(23, 167, 129);
+          border-radius: 10px;
+          box-shadow: 0 0 10px 0 rgba(0,0,0, 0.5);
+          display: none;
+          text-align: center;
+          line-height: 3rem;
+          padding: 3rem 5rem;
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Feedback UI</h1>
+        </div>
+        <div class="feedbacks">
+            <div class="feedback-unhappy flex">
+                <div class="face">😞</div>
+                <div class="text">Unhappy</div>
+            </div>
+            <div class="feedback-neutral flex">
+                <div class="face">😐</div>
+                <div class="text-neutral">Neutral</div>
+            </div>
+            <div class="feedback-happy flex">
+                <div class="face">😀</div>
+                <div class="text-happy">Satisfied</div>
+            </div>
+        </div>
+        <button type="submit" id="submit-btn">Send Reviews</button>
+    </div>
+
+    <div class="submitted-feedback-unhappy">
+        <h3>Thank You !</h3>
+        <h2>FeedBack: Unhappy</h2>
+        <p>We'll use your feedback to improve our customer support.</p>
+    </div>
+    <div class="submitted-feedback-neutral">
+        <h3>Thank You!</h3>
+        <h2>FeedBack: Neutral</h2>
+        <p>We appreciate your feedback</p>
+    </div>
+    <div class="submitted-feedback-happy">
+        <h3>Thank You!</h3>
+        <h2>FeedBack: Satisfied</h2>
+        <p>We're glad to hear that</p>
+    </div>
+
+
+    <script>
+        let unhappyFeedback = document.querySelector('.feedback-unhappy');
+        let neutralFeedback = document.querySelector('.feedback-neutral');
+        let happyFeedback = document.querySelector('.feedback-happy');
+        let submitFeedback = document.getElementById('submit-btn');
+
+        unhappyFeedback.addEventListener('click', function() {
+           unhappyFeedback.style.backgroundColor = "#66ccff";
+           neutralFeedback.style.background = "transparent";
+            happyFeedback.style.backgroundColor = "transparent";
+
+            submitFeedback.addEventListener('click', function() {
+                document.querySelector('.submitted-feedback-unhappy').style.display = "block";
+                document.querySelector('.submitted-feedback-neutral').style.display = "none";
+                document.querySelector('.submitted-feedback-happy').style.display = "none";
+                document.querySelector('.container').style.display = "none";
+ 
+            });
+
+            document.querySelector('.submitted-feedback-unhappy').addEventListener('click', function(e) {
+                document.querySelector('.container').style.display = "block";
+                document.querySelector('.container').style.display = "flex";
+
+                document.querySelector('.submitted-feedback-unhappy').style.display = "none";
+            });
+
+        });
+        neutralFeedback.addEventListener('click', function() {
+            neutralFeedback.style.backgroundColor = "#66ccff";
+            unhappyFeedback.style.backgroundColor = "transparent";
+            happyFeedback.style.backgroundColor = "transparent";
+
+            submitFeedback.addEventListener('click', function() {
+                document.querySelector('.submitted-feedback-neutral').style.display = "block";
+                document.querySelector('.submitted-feedback-unhappy').style.display = "none";
+                document.querySelector('.submitted-feedback-happy').style.display = "none";
+                document.querySelector('.container').style.display = "none";
+                
+            });
+
+            document.querySelector('.submitted-feedback-neutral').addEventListener('click', function(e) {
+                document.querySelector('.container').style.display = "block";
+                document.querySelector('.container').style.display = "flex";
+
+                document.querySelector('.submitted-feedback-neutral').style.display = "none";
+            });
+
+        });
+        happyFeedback.addEventListener('click', function() {
+            happyFeedback.style.backgroundColor = "#66ccff";
+            neutralFeedback.style.backgroundColor = "transparent";
+            unhappyFeedback.style.backgroundColor = "transparent"; 
+
+            submitFeedback.addEventListener('click', function() {
+                document.querySelector('.submitted-feedback-happy').style.display = "block";
+                document.querySelector('.submitted-feedback-unhappy').style.display = "none";
+                document.querySelector('.submitted-feedback-neutral').style.display = "none";
+                document.querySelector('.container').style.display = "none";
+                
+            });
+
+            document.querySelector('.submitted-feedback-happy').addEventListener('click', function(e) {
+                document.querySelector('.container').style.display = "block";
+                document.querySelector('.container').style.display = "flex";
+
+                document.querySelector('.submitted-feedback-happy').style.display = "none";
+            });
+        });
+
+    </script>
+</body>
+</html>
