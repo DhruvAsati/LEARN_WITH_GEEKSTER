@@ -1,5 +1,25 @@
 
 let container = document.querySelector('.container');
+let inner = document.querySelector('#inner');
+let outer = document.querySelector('.outer');
+
+inner.addEventListener('click', function(){
+   if(inner.style.transform === 'translateX(2rem)'){
+       inner.style.transitionDuration = '1s';
+       inner.style.transform = 'translateX(0)';
+       outer.style.backgroundColor = 'grey';
+       document.body.style.backgroundColor = 'white';
+       document.body.style.color = 'black';
+   }
+   else{
+       inner.style.transitionDuration = '1s';
+       inner.style.transform = 'translateX(2rem)';
+       outer.style.backgroundColor = 'green';
+       document.body.style.backgroundColor = 'black';
+       document.body.style.color = 'white';
+   }
+
+});
 
 // Function to generate random color
  function getRandomColor(){

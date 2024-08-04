@@ -6,14 +6,40 @@
 
 body{
     font-family: Arial, sans-serif;
-    background-color: black;
+    background-color: white;
 }
-
+.header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+.outer{
+    width: 4rem;
+    height: 2.1rem;
+    background-color: grey;
+    border: 1px solid black;
+    border-radius: 20px;
+    position: relative;
+}
+.outer p{
+    margin-top: 2rem;
+}
+#inner{
+    width: 2rem;
+    height: 2rem;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0);
+    border: none;
+}
 h1{
     text-align: center;
     padding: 2rem;
     font-size: 2rem;
-    color: white;
     font-family: cursive;
 }
 
