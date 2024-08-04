@@ -13,9 +13,22 @@ addPlayerBtn.addEventListener('click', function(){
         country: country.value,
         score: parseInt(score.value)
     };
-    playerArray.push(player);
-    displayPlayers(playerArray);
-    clearInputs();
+    if(player.firstName == "" || player.lastName == "" || player.country == "" || score.value === ""){
+       playerSection.innerHTML = `<div class="field-message">
+                <h3>All Fields are requiered!</h3>
+       </div>`
+        return;
+    }
+    else if(playerArray.some(p => p.firstName === player.firstName && p.lastName === player.lastName && p.country === player.country)){
+        alert('Player already exists!');
+        return;
+    }
+    else{
+        playerArray.push(player);
+        displayPlayers(playerArray);
+        clearInputs();
+    }
+    
 
 });
 
