@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+
+h1{
+    text-align: center;
+    padding: 2rem;
+    font-size: 2rem;
+    color: white;
+    font-family: cursive;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.color-container{
+    width: 23%;
+    height: 25vh;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px;
+    padding:4rem 3rem;
+    color: #f2f2f2;
+    font-size: 24px;
+    border: 2px solid white;
+    transition: all 0.5s ease-in-out;
+
+}
+
+.color-container:hover{
+  
+    transform: scale(1.1, 1.1);
+}
