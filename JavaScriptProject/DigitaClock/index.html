@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Digital Clock</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url("https://images.unsplash.com/photo-1499002238440-d264edd596ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80") no-repeat;
+      background-position: center center;;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+    h1{
+        font-size: 3em;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        color: #fff;
+        margin-bottom: 2rem;
+    }
+
+    .clock {
+      font-size: 4em;
+      font-weight: bold;
+      display: flex;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .hour, .minutes, .seconds{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3em;
+        font-weight: bold;
+        margin: 0 10px;
+        padding: 0.5rem 1rem;
+        background: linear-gradient(to right, rgba(19, 58, 175, 0.5), rgb(70, 84, 164));
+  
+    }
+    .meridian{
+        padding: 0.5rem;
+        text-align: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        background-color: green;
+        margin-top: 8rem;
+    }
+
+    .text{
+        width: 100%;
+        padding:0.5rem 1rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-top: 10px;
+        text-align: center;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        background-color: rgb(30, 14, 120);
+
+    }
+  </style>
+</head>
+<body>
+    <h1>Digital Clock</h1>
+  <div class="clock"></div>
+
+  <script>
+    let clock = document.querySelector(".clock");
+    setInterval(updateClock, 1000);
+
+    function updateClock() {
+      let date = new Date();
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+      let seconds = date.getSeconds();
+      let meridian = hours >= 12 ? "PM" : "AM";
+
+      clock.innerHTML = `
+       
+        <div class="hour">
+            ${hours % 12 || 12}
+            <p class = "text">Hours</p>          
+        </div>
+        <div class="minutes">
+             ${minutes} 
+              <p class = "text">Minutes</p>         
+        </div>
+        <div class="seconds">
+             ${seconds} 
+              <p class = "text">Seconds</p>        
+        </div>
+        <div class="meridian">
+             ${meridian}    
+        </div>
+      
+      
+      `;
+
+    }
+
+    updateClock();
+  </script>
+</body>
+</html>
