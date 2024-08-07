@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./assests/time-tracking.png" type="image/x-icon">
+    <title>Stop Watch</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 100vh;
+            background-color: #343a40;
+            flex-direction: column;
+        }
+        h1{
+            font-size: 3rem;
+            color: white;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        h2{
+            font-size: 4rem;
+            color: white;
+        }
+        #container{
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+            background-color: #007bff;
+            border-radius: 30px;
+            padding: 1rem;
+            transition: background-color 0.5s;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+        }
+
+        .btn{
+            display: flex;
+            justify-content: space-around;
+            width: 40%;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+        
+        .btn #start, .btn #stop, .btn #reset{
+            font-size: large;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 600;
+            background-color: #3181d1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+
+        }
+        
+        #start:hover, #stop:hover, #reset:hover{
+            background-color: #21759b;
+            color: white;
+        }
+
+    /* responsive */
+      
+
+        @media (min-width: 263px)and ( max-width: 768px) {
+            body{
+                flex-direction: column;
+            }
+            #container{
+                width: 100%;
+            }
+            h1{
+                font-size: 3rem;
+            }
+            #timer{
+                font-size: 3rem;
+            }
+            #start, #stop, #reset{
+                font-size: medium;
+            }
+            #start:hover, #stop:hover, #reset:hover{
+                background-color: #21759b;
+                color: white;
+            }
+            #container{
+                margin-bottom: 2rem;
+            }
+            #timer{
+                margin-bottom: 1rem;
+            }
+            #start, #stop, #reset{
+                margin-bottom: 0.5rem;
+            }
+            .btn{
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn button{
+                margin-top: 0.5;
+            
+            }
+        }
+
+        @media (max-width: 263px) {
+            #container{
+                width: 100vw;
+                margin-bottom: 1rem;
+                margin-top: 1rem;
+            }
+            .btn{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            #start, #stop, #reset{
+                font-size: 10px;
+                margin: 1rem;
+            }
+
+            h2{
+                font-size: 16px;
+            }
+
+            h1{
+                text-wrap: nowrap;
+                font-size: 1.2rem;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Stop Watch</h1>
+    <div id="container">
+        <h2 id="timer">00:00:00:00</h2>
+        
+    </div>    
+    <div class="btn">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
