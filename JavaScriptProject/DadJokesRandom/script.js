@@ -25,14 +25,19 @@ async function getDadJoke() {
 };
 
 btn.addEventListener('click',function(e){
-    const audio = document.querySelector('#jokesound');
-    audio.currentTime = 0;
-    audio.play();
+    setTimeout(()=>{
+        const audio = document.querySelector('#jokesound');
+        audio.currentTime = 0;
+        audio.play();
+    },3000);
    
 });
 
 btn.addEventListener('click', function(e) {
-    getDadJoke();   
+    jokeDiv.innerHTML = "Updating ...";
+    setTimeout(()=>{
+        getDadJoke();
+    }, 3000);
     e.preventDefault();
 });
 
