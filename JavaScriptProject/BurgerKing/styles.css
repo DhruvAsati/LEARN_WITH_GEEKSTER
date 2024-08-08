@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+.Order-Product{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1.5rem 0;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    &:hover{
+        background-color: #eaeaea;
+    }
+}
+h1{
+    text-align: center;
+    font-size: 2rem;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: #f7f7f7;
+}
+.Order{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.items{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.item{
+    margin-right: 20px;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+#Order-now{
+    padding: 10px 20px;
+    background-color: #f1c40f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.orderID{
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
