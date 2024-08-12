@@ -6,7 +6,7 @@
 .header{
     width: 100%;
     background-color: #f1f1f1;
-    padding: 15px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,7 +137,7 @@ h1:hover{
         font-size: 1.5rem;
     }
     #imageContainer{
-        height: 60vh;
+        height: 100vh;
     }
     #imageContainer img{
         width: 90%;
