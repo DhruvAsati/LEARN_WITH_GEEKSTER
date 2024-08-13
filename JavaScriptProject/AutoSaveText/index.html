@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Save Text</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f1f1f1;
+        }
+        #textarea{
+            width: 60%;
+            height: 50%;
+            resize: none;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #textarea::placeholder{
+            color: #2d2727;
+            font-style: italic;
+            font-size: 1.2rem;
+            cursor: text;
+            padding: 2rem;
+            background-color: #f9f9f9;
+        }
+        h1{
+            margin: 2rem 0;
+            text-align: center;
+            font-size: 4rem;
+            color: #333;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Auto Save Text</h1>
+    <textarea id="textarea" name="textarea" cols="100" rows="30" placeholder="Auto Save Text"></textarea>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
