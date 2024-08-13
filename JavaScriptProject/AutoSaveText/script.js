@@ -1,18 +1,24 @@
-let textarea  = document.querySelector('textarea');
-
-textarea.addEventListener('input', function(){
-    localStorage.setItem('textarea', textarea.value);
-    let savedText = localStorage.getItem('textarea');
-    textarea.value = savedText;
-    let charCount = textarea.value.length;
-    document.getElementById('charCount').textContent = charCount;
-    if(charCount > 100){
-        textarea.style.backgroundColor ='red';
-    } else {
-        textarea.style.backgroundColor = '';
-    }
-    
+// Save data to localStorage
+document.querySelector('textarea').addEventListener('input', ()=>{
+    saveData(this.value);
+   
 });
+window.addEventListener('load', ()=>{
+    loadData();
+}); //
+function saveData() {
+    const textareaValue = document.querySelector('textarea').value;
+    localStorage.setItem('textarea', textareaValue);
+}
+
+// Load data from localStorage
+function loadData() {
+    const savedText = localStorage.getItem('textarea') || '';
+    document.querySelector('textarea').value = savedText;
+}
+
+// Call these functions as needed (e.g., on input or page load)
+
 
 
 const outer = document.querySelector('.outer');
