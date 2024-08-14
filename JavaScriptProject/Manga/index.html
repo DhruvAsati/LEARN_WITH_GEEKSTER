@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assests/Screenshot 2024-08-14 235014.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Manga For You</title>
+</head>
+<body>
+    <header>
+        <nav>
+           <div class="logo">
+            <img src="./assests/Screenshot 2024-08-14 235014.png" alt="Logo" >
+           </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Manga</a></li>
+                <input type="text" id="searchInput" placeholder="Search Manga">
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <h1>Manga For You</h1>
+            <p>Discover the best manga in the world</p>
+        </section>
+        
+        <section class="manga-list">
+            <h2>Popular Manga</h2>
+            <div id="mangaContainer">
+                <!-- Manga cards will be dynamically generated here -->
+            </div>
+            <!--Pagination buttons-->
+           <div class="btn">
+            <button id="prevButton">Prev</button>
+            <button id="nextButton">Next</button>
+           </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Manga For You. All rights reserved. <b>By Dhruv Asati</b></p>
+    </footer>
+
+    <script src="./script.js"></script>  
+</body>
+</html>
