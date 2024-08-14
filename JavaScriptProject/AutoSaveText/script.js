@@ -1,4 +1,3 @@
-// Save data to localStorage
 document.querySelector('textarea').addEventListener('input', ()=>{
     saveData(this.value);
    

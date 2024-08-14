@@ -88,3 +88,73 @@ h2 {
     position: absolute;
     transform: translate(8vw,-2.2rem);
 }
+
+@media screen and (max-width: 790px) {
+  #card-Container {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 20px;
+  }
+ .card {
+   width: 100%;
+   margin-bottom: 10px;
+ 
+ }
+ h1 {
+   font-size: 2rem;
+ }
+ h2 {
+   font-size: 1.2rem;
+ }
+ #bg-color{
+    transform: translate(0,-2.2rem);
+ }
+}
+
+@media screen and (max-width: 480px) {
+  #card-Container {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 10px;
+  }
+ .card {
+   width: 100%;
+   margin-bottom: 5px;
+ 
+ }
+ h1 {
+   font-size: 1.5rem;
+ }
+ h2 {
+   font-size: 1rem;
+ }
+ #bg-color{
+    transform: translate(5rem,-2.2rem);
+ }
+
+}
+
+@media screen and (max-width: 360px) {
+  #card-Container {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+ .card {
+   width: 100%;
+   margin-bottom: 3px;
+ }
+ h1 {
+   font-size: 1.2rem;
+ }
+ h2 {
+   font-size: 0.8rem;
+ }
+ #bg-color{
+    transform: translate(5rem,-2.2rem);
+ }
+ h1, h2 {
+   text-align: center;
+ }
+}
+
