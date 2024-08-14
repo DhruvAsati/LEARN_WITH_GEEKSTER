@@ -17,10 +17,11 @@ body{
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    transition: background-color 0.3s ease;
+    transition: background-color 0.8s ease;
     cursor: pointer;
     &:hover{
         background-color: #eaeaea;
+        padding: 30px;
     }
 }
 h1{
