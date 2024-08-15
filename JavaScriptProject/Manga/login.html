@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Manga For You</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+        nav ul li {
+            float: left;
+        }
+        nav ul li a {
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            background-color: #111;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+        form {
+            margin-top: 100px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .formContainer{
+            width: 400px;
+            margin: 1rem auto;
+            padding: 10px;
+            background-color: #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            transition: background-color 0.5s ease-in-out;
+            cursor: pointer;
+            &:hover {
+                background-color: #a59f9f;
+            }
+
+
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            &:hover {
+                color: #0056b3;
+            }
+        }
+        input {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+            &:focus {
+                border-color: #ccc;
+            }
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+    <h1>Login Page</h1>
+        <div class="formContainer">
+            <form name="Login" method="get" action="#">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <input type="submit" value="login Up" id="submitBtn">
+                <a href="./signUp.html">Don't have account? SignUp</a>
+    
+                
+            </form>
+        </div>
+</body>
+</html>

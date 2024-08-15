@@ -66,7 +66,9 @@ document.getElementById('mangaContainer').addEventListener('click', (event) => {
 async function fullManga(event) {
     const mangaId = event.target.parentElement.dataset.id;
     try {
-        const response = await fetch(`https://api.jikan.moe/v4/manga/{id}/pictures`);
+        //taking chapter from mangadex api
+        // const apiUrl = `https://api.jikan.moe/v4/manga/{id}`;
+        const response = await fetch(apiUrl);
         const data = await response.json();
         const mangaTitle = data.data.title;
         // Placeholder for chapters since Jikan API does not directly provide chapter data in the main manga endpoint
