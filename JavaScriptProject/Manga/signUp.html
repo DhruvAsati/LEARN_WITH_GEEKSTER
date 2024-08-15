@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="style.css">
     <title>Manga For You</title>
     <style>
@@ -89,6 +90,7 @@
         input[type="submit"] {
             background-color: #4CAF50;
             color: #fff;
+            cursor: pointer;
         }
 
     </style>
@@ -119,5 +121,48 @@
                 
             </form>
         </div>
+
+    <script>
+        let container = document.querySelector('.formContainer');
+        let usersData = [];
+        document.querySelector('form[name="signUp"]').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            localStorage.setItem('username', username);
+            localStorage.setItem('email', email);
+            localStorage.setItem('password', password);
+            let userData = {
+                username: username,
+                email: email,
+                password: password
+            }
+            usersData.push(userData);
+            let user = JSON.stringify(usersData);
+            localStorage.setItem("user", user);
+            
+            if (username.trim() === '' || email.trim() === '' || password.trim() === '') {
+                    alert('All fields are required.');
+                    return;
+                }
+            else{
+                container.innerHTML = 'Signing up...';
+                setTimeout(function(){
+                    container.innerHTML = 'Form submitted successfully!';
+                }, 3000);
+                setTimeout(() => {
+                        
+                    window.location.href = './login.html';
+                }, 6000);
+            }            
+            
+        });
+
+        
+            
+                
+
+    </script>
 </body>
 </html>

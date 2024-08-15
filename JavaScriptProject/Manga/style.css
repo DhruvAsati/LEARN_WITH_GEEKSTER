@@ -53,6 +53,30 @@ header nav ul li{
     }
 
 }
+#logOut{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    &:hover, &:hover #logoutButton{
+        background-color: #f1c40f;
+        color: white;
+        cursor: pointer;
+    }
+}
+#logoutButton{
+    margin-left: 20px;
+    padding: 1rem 2rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+   
+}
 
 header nav ul li a{
     color: inherit;
@@ -383,8 +407,7 @@ footer p{
         font-size: 12px;
     }
     #searchInput{
-        width: 80%;
-        margin-top: 1rem;
+       display: none;
     }
 }
 

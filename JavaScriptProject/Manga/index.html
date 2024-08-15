@@ -214,14 +214,14 @@
         const btn = document.querySelector('#proceed-btn');
         const proceed = document.querySelector('.proceed');
          btn.addEventListener('click', () => {
-             btn.innerHTML = 'Enjoy Reading your Favorite Manga!';
+             btn.innerHTML = 'Welcome To Manga For You WebSite!';
              setTimeout(() =>{
-                btn.innerHTML = 'Please wait...';
+                btn.innerHTML = 'Please SignUp to Continue...';
              }, 2500);
              proceed.style.backgroundColor = "#6bc2e7";
              btn.style.color = "#FFFFFF";
              setTimeout((e) =>{
-                window.location.href = './home.html';
+                window.location.href = './signUp.html';
             }, 5000);
 
          });
