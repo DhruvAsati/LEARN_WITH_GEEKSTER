@@ -55,7 +55,7 @@ header nav ul{
     align-items: center;
     justify-content: center;
     padding: 0;
-    margin: 0;
+    margin: 0 0 0 2rem;
     transition: background-color 0.3s ease;
 }
 
@@ -83,7 +83,6 @@ header nav ul li{
     }
 }
 #logoutButton{
-    margin-left: 10px;
     padding: 1rem 2rem;
     font-size: 1.1rem;
     background-color: #333;
@@ -93,6 +92,27 @@ header nav ul li{
     cursor: pointer;
     transition: background-color 0.3s ease;
    
+}
+#logOut:hover .move-animation{
+    animation-name: move;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-direction: linear;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes move {
+    0% {
+      transform: translateX(0);
+    }
+
+    50% {
+      transform: translateX(20px);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
 }
 
 header nav ul li a{
@@ -425,6 +445,9 @@ footer p{
     header nav{
         align-items: center;
         justify-content: center;
+    }
+    .logo{
+        display: none;
     }
     header nav ul{
         gap: 10px;
