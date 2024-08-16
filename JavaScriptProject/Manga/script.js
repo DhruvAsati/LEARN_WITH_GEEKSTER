@@ -127,6 +127,46 @@ window.onload = loadManga;
 //logout from account
 
 document.getElementById('logoutButton').addEventListener('click', () => {
-    localStorage.removeItem('token');
-    window.location.href = 'login.html';
+    document.querySelector('body').style.backgroundImage= 'linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0,0.8))';
+    let logout = document.createElement('div');
+    logout.classList.add('logoutDiv');
+    logout.innerHTML = `<h2>Do you want to LogOut?</h2>
+        <div class = "logoutInside-btn">
+            <button type="button" class = "logYes">Yes</button>
+            <button type="button" class="logNo">No</button>
+        </div>   
+    
+    `;
+        document.body.appendChild(logout);
+        logout.style.position = 'fixed';
+        logout.style.transform = 'translate(-50%, -50%)';
+        logout.style.top = '50%';
+        logout.style.left = '50%';
+        logout.style.zIndex = '1000';
+        logout.style.backgroundColor = 'white';
+        logout.style.padding = '1rem  2rem';
+        logout.style.borderRadius = '5px';
+        logout.style.display = 'block';
+        logout.style.border = '2px solid black';
+        logout.style.maxHeight = '600px';
+        logout.style.overflowX = 'hidden';
+        logout.style.boxSizing = 'border-box';
+        logout.addEventListener('click', (event) => {
+            if (event.target.tagName === 'BUTTON') {
+                if (event.target.textContent === 'Yes') {
+                    localStorage.removeItem('token');
+                    logout.innerHTML = '<b>Signing off...<b>';
+                    logout.style.backgroundColor = 'rgba(255, 255, 255,0.6);'
+                    logout.style.color = 'black';
+                   setTimeout(()=>{
+                        window.location.href = './login.html';
+                   }, 3000 );
+                } else if (event.target.textContent === 'No') {
+                        logout.remove();
+                        window.location.href = './home.html';
+                    }
+
+            };
+        });;
+
 });

@@ -231,6 +231,7 @@
     </div>
 
     <script>
+    
      let loginForm = document.querySelector('form[name="login"]');
       loginForm.addEventListener('submit', function(event) {
           event.preventDefault();
@@ -243,6 +244,8 @@
           var storedEmail= localStorage.getItem('email');
           var storedPassword = localStorage.getItem('password');
           var storedUsername = localStorage.getItem('username');
+
+        
           
           // Validate credentials
           if (email.trim() === '' || password.trim() === '') {
@@ -280,8 +283,6 @@
 
           }, 10000);
 });
-
-
     </script>
   </body>
 </html>

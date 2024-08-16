@@ -32,7 +32,9 @@
             </div>
         </nav>
     </header>
-    
+    <div class="welcome-msg2">
+        <h1>Welcome,</h1><p class="user-Name">-</p>
+     </div>
     <main>
         <section class="hero">
             <h1>Manga For You</h1>
@@ -56,6 +58,10 @@
         <p>&copy; 2024 Manga For You. All rights reserved. <b>By Dhruv Asati</b></p>
     </footer>
 
-    <script src="./script.js"></script>  
+    <script src="./script.js"></script> 
+    <script>
+        var storedUsername = localStorage.getItem('username');
+        document.getElementsByClassName('user-Name').item(0).innerHTML = storedUsername
+    </script> 
 </body>
 </html>
