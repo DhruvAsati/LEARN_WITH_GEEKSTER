@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.player {
+width: 100%;
+height: 300px;
+background-color: #111;
+position: relative;
+overflow: hidden;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.controls {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: flex;
+justify-content: space-around;
+align-items: center;
+padding: 10px;
+}
+.progress-bar {
+width: 100%;
+height: 5px;
+background-color: #333;
+}
+.time-display {
+margin-top: 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 20px;
+color: #fff;
+font-weight: bold;
+font-family: Arial, sans-serif;
+}
+.volume-controls {
+margin-top: 20px;
+display: flex;
+align-items: center;
+gap: 10px;
+
+
+}
+.next, .previous{
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    opacity: 0.5;
+}
+.volume-up, .volume-down, .play-pause{
+font-size: 20px;
+color: #fff;
+cursor: pointer;
+transition: color 0.3s ease;
+}
+.volume-percentage {
+font-size: 18px;
+color: #fff;
+font-weight: bold;
+margin-left: 10px;
+} 
+.current-time{
+font-size: 20px;
+color: #fff;
+font-weight: bold;
+margin-left: 10px;
+margin-top: 20px;
+}
+.total-time{
+font-size: 20px;
+color: #fff;
+font-weight: bold;
+margin-left: 10px;
+margin-top: 20px;
+}
+.song{
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
