@@ -25,6 +25,70 @@ const createMangaCard = (manga) => {
     `;
 };
 
+// Event listener for the 'Show Description' button
+document.getElementById('mangaContainer').addEventListener('click', (event) => {
+    if (event.target.classList.contains('show-description-button')) {
+        showDescription(event);
+    }
+    
+});
+
+function showDescription(event) {
+    // Create the description popup
+    const centerDiv = document.createElement('div');
+    centerDiv.classList.add('popDes');
+    centerDiv.style.position = 'fixed';
+    centerDiv.style.top = '50%';
+    centerDiv.style.left = '50%';
+    centerDiv.style.transform = 'translate(-50%, -50%)';
+    centerDiv.style.zIndex = '1000';
+    centerDiv.style.backgroundColor = '#fff';
+    centerDiv.style.padding = '20px';
+    centerDiv.style.borderRadius = '8px';
+    centerDiv.style.boxShadow = '0 10px 16px rgba(0, 0, 0, 0.6)';
+    centerDiv.style.maxWidth = '90%';
+    centerDiv.style.maxHeight = '80%';
+    centerDiv.style.overflow = 'auto';
+    centerDiv.style.textAlign = 'center';
+    
+    centerDiv.innerHTML = `
+        <h3>${event.target.parentElement.querySelector('h3').textContent}</h3>
+        <p>${event.target.parentElement.querySelector('.manga-description').textContent}</p>
+        <button class="close-pop-description-button" style="
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        ">Close</button>
+    `;
+
+    document.body.appendChild(centerDiv);
+
+
+}
+
+// Event listener for the 'Close' button
+document.body.addEventListener('click', (event) => {
+    if (event.target.classList.contains('close-pop-description-button')) {
+        closePopDescription();
+
+    }
+});
+
+function closePopDescription() {
+    const popDescription = document.querySelector('.popDes');
+    if (popDescription) {
+        popDescription.remove();
+    }
+}
+
+
+
+
 const renderManga = (mangaList) => {
     const mangaContainer = document.getElementById('mangaContainer');
     mangaContainer.innerHTML = mangaList.map(createMangaCard).join('');
@@ -53,14 +117,7 @@ document.getElementById('searchInput').addEventListener('input', (event) => {
     loadManga();
 });
 
-// Event listener for showing/hiding descriptions
-document.getElementById('mangaContainer').addEventListener('click', (event) => {
-    if (event.target.classList.contains('show-description-button')) {
-        const description = event.target.nextElementSibling;
-        description.style.display = description.style.display === 'none' ? 'block' : 'none';
-        event.target.textContent = description.style.display === 'block' ? 'Hide Description' : 'Show Description';
-    }
-});
+
 
 // Function to load and display full manga details
 async function fullManga(event) {
