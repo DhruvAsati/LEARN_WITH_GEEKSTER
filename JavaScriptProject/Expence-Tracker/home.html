@@ -413,19 +413,63 @@
                 </div>
             </div>
             <div class="payment-page" id="payment-options" style="display: none;">
-                <h2>Chat with Our Expert</h2>
-                <button id="pay-button">Pay</button>
-                <div class="payment-options" id="payment-options-container" style="display: none;">
-                    <h3>Select Payment Method:</h3>
-                    <button onclick="processPayment()">UPI</button>
-                    <button onclick="processPayment()">Credit/Debit Card</button>
-                    <button onclick="processPayment()">Net Banking</button>
-                    <button onclick="processPayment()">Wallet</button>
-                    <div class="qr-code" id="qr-code">
-                        <img src="./assests/qrcode_124629747_bd28f47f5f26e89d29dfb58c447d824b.png" alt="QR Code">
-                    </div>
-                    <div id="payment-status" style="color: green;"></div>
-                </div>
+              <h2>Chat with Our Expert</h2>
+              <button id="pay-button">Pay</button>
+              
+              <div class="payment-options" id="payment-options-container" style="display: none;">
+                  <h3>Select Payment Method:</h3>
+                  <div class="payment-methods">
+                      <button onclick="showPaymentForm('upi')">UPI</button>
+                      <button onclick="showPaymentForm('card')">Credit/Debit Card</button>
+                      <button onclick="showPaymentForm('netbanking')">Net Banking</button>
+                      <button onclick="showPaymentForm('wallet')">Wallet</button>
+                  </div>
+                  
+                  <!-- UPI Payment Form -->
+                  <div class="payment-form" id="upi-form" style="display: none;">
+                      <h4>Enter UPI ID:</h4>
+                      <input type="text" id="upi-id" placeholder="Enter UPI ID">
+                      <button onclick="processPayment('UPI')">Submit UPI Payment</button>
+                  </div>
+                  
+                  <!-- Card Payment Form -->
+                  <div class="payment-form" id="card-form" style="display: none;">
+                      <h4>Credit/Debit Card Details:</h4>
+                      <input type="text" id="card-number" placeholder="Card Number">
+                      <input type="text" id="card-holder-name" placeholder="Cardholder Name">
+                      <input type="text" id="expiry-date" placeholder="MM/YY">
+                      <input type="text" id="cvv" placeholder="CVV">
+                      <button onclick="processPayment('Card')">Submit Card Payment</button>
+                  </div>
+                  
+                  <!-- Net Banking Payment Form -->
+                  <div class="payment-form" id="netbanking-form" style="display: none;">
+                      <h4>Select Bank:</h4>
+                      <select id="bank-selection">
+                          <option value="">Choose Bank</option>
+                          <option value="bank1">Bank 1</option>
+                          <option value="bank2">Bank 2</option>
+                          <option value="bank3">Bank 3</option>
+                      </select>
+                      <button onclick="processPayment('Net Banking')">Submit Net Banking Payment</button>
+                  </div>
+                  
+                  <!-- Wallet Payment Form -->
+                  <div class="payment-form" id="wallet-form" style="display: none;">
+                      <h4>Choose Wallet:</h4>
+                      <select id="wallet-selection">
+                          <option value="">Select Wallet</option>
+                          <option value="wallet1">Wallet 1</option>
+                          <option value="wallet2">Wallet 2</option>
+                          <option value="wallet3">Wallet 3</option>
+                      </select>
+                      <button onclick="processPayment('Wallet')">Submit Wallet Payment</button>
+                  </div>
+                  
+                  <div id="payment-status" style="color: green;"></div>
+              </div>
+          </div>
+          
             </div>
         </div>
     </div>
