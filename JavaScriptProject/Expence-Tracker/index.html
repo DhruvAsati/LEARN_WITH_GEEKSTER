@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Expense Tracker</title>
+</head>
+<body>
+    <header>
+        <nav>
+           <div class="logo">
+              <img src="./assests/logo.png" alt="Expense Tracker Logo">
+  
+           </div> 
+           <div class="login-SignUp">
+             <a href="#" class="login"><button>
+                Login
+             </button></a>
+             <a href="#" class="sign-up"><button>
+                Sign Up
+             </button></a>
+           </div>
+        </nav>
+    </header>
+    <div class="main-container">
+        <div class="heading">
+            <h1>Track Your Monthly Expenses</h1>
+            <p>Easily manage your expenses and save money with our budgeting tool.</p>
+            <a href="#" class="create-expense"><button>
+                Create Expense
+             </button></a>
+        </div>
+
+    </div>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">Login</div>
+            
+            <!-- New name field for sign-up -->
+            <div id="name-field" style="display: none;">
+                <input type="text" id="name" placeholder="Name">
+            </div>
+    
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+    
+            <!-- New confirm password field for sign-up -->
+            <div id="confirm-password-field" style="display: none;">
+                <input type="password" id="confirm-password" placeholder="Confirm Password">
+            </div>
+            
+            <button class="modal-action">Login</button>
+    
+            <!-- Switch link to toggle between login and sign-up -->
+            <div class="switch-link">
+                Already registered? Login here
+            </div>
+        </div>
+    </div>
+    
+    
+    <footer>
+        <p>�� 2024 Expense Tracker. All rights reserved.</p>
+    </footer>
+    <script>
+        
+        // Function to open the modal
+            function openModal(mode) {
+                const modal = document.querySelector('.modal');
+                const header = modal.querySelector('.modal-header');
+                const actionButton = modal.querySelector('.modal-action');
+                const nameField = modal.querySelector('#name-field');
+                const confirmPasswordField = modal.querySelector('#confirm-password-field');
+                const switchLink = modal.querySelector('.switch-link');
+
+                // Show/Hide fields based on mode
+                if (mode === 'login') {
+                    nameField.style.display = 'none';
+                    confirmPasswordField.style.display = 'none';
+                    header.textContent = 'Login';
+                    actionButton.textContent = 'Login';
+                    switchLink.textContent = "Don't have an account? Sign up here";
+                    switchLink.onclick = function () {
+                        openModal('signUp');
+                    };
+                } else {
+                    nameField.style.display = 'block';
+                    confirmPasswordField.style.display = 'block';
+                    header.textContent = 'Sign Up';
+                    actionButton.textContent = 'Sign Up';
+                    switchLink.textContent = 'Already registered? Login here';
+                    switchLink.onclick = function () {
+                        openModal('login');
+                    };
+                }
+
+                modal.style.display = 'flex';
+
+                // Handle action based on mode
+                actionButton.onclick = function () {
+                    const username = modal.querySelector('#username').value;
+                    const password = modal.querySelector('#password').value;
+
+                    if (mode === 'login') {
+                        login(username, password);
+                    } else {
+                        const name = modal.querySelector('#name').value;
+                        const confirmPassword = modal.querySelector('#confirm-password').value;
+                        signUp(name, username, password, confirmPassword);
+                    }
+                };
+            }
+
+            // Handling user sign-up
+            function signUp(name, username, password, confirmPassword) {
+                if (!name || !username || !password || !confirmPassword) {
+                    alert("Please fill in all fields.");
+                    return;
+                }
+                if (password !== confirmPassword) {
+                    alert("Passwords do not match. Please try again.");
+                    return;
+                }
+
+                if (localStorage.getItem(username)) {
+                    alert("Username already exists. Please choose a different one.");
+                } else {
+                    localStorage.setItem(username, JSON.stringify({ name: name, password: password }));
+                    alert("Sign-up successful! You can now log in.");
+                    closeModal();
+                    openModal('login');
+                }
+            }
+
+            // Handling user login
+            function login(username, password) {
+                const userData = JSON.parse(localStorage.getItem(username));
+
+                if (userData && userData.password === password) {
+                    alert("Login successful! Welcome, " + userData.name + "!");
+                    closeModal();
+                    window.location.href = "./home.html";
+                } else {
+                    alert("Login failed. Please check your username and password.");
+                }
+            }
+
+            // Add event listeners to the buttons
+            document.querySelector('.login').addEventListener('click', function(event) {
+                event.preventDefault();
+                openModal('login');
+            });
+
+            document.querySelector('.sign-up').addEventListener('click', function(event) {
+                event.preventDefault();
+                openModal('signUp');
+            });
+
+            // Close modal when clicking on 'X'
+            document.querySelector('.close').addEventListener('click', closeModal);
+
+            // Close modal when clicking outside of the modal content
+            window.addEventListener('click', function(event) {
+                const modal = document.querySelector('.modal');
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+            function closeModal() {
+                document.querySelector('.modal').style.display = 'none';
+            }
+
+
+    </script>
+</body>
+</html>
