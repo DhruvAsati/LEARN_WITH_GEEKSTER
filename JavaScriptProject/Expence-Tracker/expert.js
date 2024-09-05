@@ -141,8 +141,52 @@ document.addEventListener("DOMContentLoaded", function () {
     function processPayment(paymentType) {
         const paymentStatus = document.getElementById('payment-status');
         paymentStatus.style.display = 'block';
-        paymentStatus.textContent = paymentType + " Payment Submitted Successfully!";
+        paymentStatus.textContent = 'Payment Processing...';
+    
+        let isValid = false;
+    
+        // Validate based on payment type
+        if (paymentType === 'UPI') {
+            const upiId = document.getElementById('upi-id').value.trim();
+            if (upiId === "") {
+                paymentStatus.textContent = 'Please enter a valid UPI ID.';
+                return;
+            }
+            isValid = true;
+        } else if (paymentType === 'Card') {
+            const cardNumber = document.getElementById('card-number').value.trim();
+            const cardHolderName = document.getElementById('card-holder-name').value.trim();
+            const expiryDate = document.getElementById('expiry-date').value.trim();
+            const cvv = document.getElementById('cvv').value.trim();
+    
+            if (cardNumber === "" || cardHolderName === "" || expiryDate === "" || cvv === "") {
+                paymentStatus.textContent = 'Please fill in all card details.';
+                return;
+            }
+            // You could add more validation, such as checking the card number length, CVV format, etc.
+            isValid = true;
+        } else if (paymentType === 'Net Banking') {
+            const bankSelection = document.getElementById('bank-selection').value;
+            if (bankSelection === "") {
+                paymentStatus.textContent = 'Please select a bank.';
+                return;
+            }
+            isValid = true;
+        } else if (paymentType === 'Wallet') {
+            const walletSelection = document.getElementById('wallet-selection').value;
+            if (walletSelection === "") {
+                paymentStatus.textContent = 'Please select a wallet.';
+                return;
+            }
+            isValid = true;
+        }
+    
+        // If all fields are valid, process the payment
+        if (isValid) {
+            paymentStatus.textContent = paymentType + " Payment Submitted Successfully!";
+        }
     }
+    
 
     // Expose the function globally to be accessible from inline onclick attributes
     window.processPayment = processPayment;
