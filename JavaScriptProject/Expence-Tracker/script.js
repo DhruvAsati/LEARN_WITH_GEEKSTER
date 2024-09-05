@@ -12,11 +12,13 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('section').style.margin = '0 auto';
             document.getElementById("ai-support-section").style.margin = '0 auto';
             document.getElementById('expertChat').style.margin = "0 auto";
+            document.getElementById('sticky-notes').style.margin = "0 auto";
         } else {
             menuIcon.textContent = 'close';
             document.querySelector('section').style.marginLeft = '250px';
             document.getElementById("ai-support-section").style.marginLeft = '220px';
             document.getElementById('expertChat').style.marginLeft = "250px";
+            document.getElementById('sticky-notes').style.marginLeft = "250px";
         }
     });
 
