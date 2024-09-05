@@ -153,6 +153,8 @@ document.addEventListener('DOMContentLoaded', function () {
         startupSection.style.display = 'none';
         expenseTrackerSection.style.display = "none";
         document.getElementById('expertChat').style.display = "none";
+        const stickyNotesSection = document.getElementById('sticky-notes');
+        stickyNotesSection.style.display = 'none';
     });
 
     document.getElementById('ai-support-button').addEventListener('click', function() {
@@ -160,6 +162,8 @@ document.addEventListener('DOMContentLoaded', function () {
         aiSupportSection.style.display = 'block';
         startupSection.style.display = 'none';
         document.getElementById('expertChat').style.display = "none";
+        const stickyNotesSection = document.getElementById('sticky-notes');
+        stickyNotesSection.style.display = 'none';
     });
 
     document.getElementById('expense-tracker-button').addEventListener('click', function() {
@@ -167,6 +171,8 @@ document.addEventListener('DOMContentLoaded', function () {
         aiSupportSection.style.display = 'none';
         startupSection.style.display = 'none';
         document.getElementById('expertChat').style.display = "none";
+        const stickyNotesSection = document.getElementById('sticky-notes');
+        stickyNotesSection.style.display = 'none';
     });
 
     document.getElementById('startUp-expence-btn').addEventListener('click', function() {
@@ -174,6 +180,8 @@ document.addEventListener('DOMContentLoaded', function () {
         expenseTrackerSection.style.display = 'none';
         aiSupportSection.style.display = 'none';
         document.getElementById('expertChat').style.display = "none";
+        const stickyNotesSection = document.getElementById('sticky-notes');
+        stickyNotesSection.style.display = 'none';
     });
 });
 
@@ -286,4 +294,24 @@ document.getElementById('chatExpertBtn').addEventListener('click', function() {
     aiSupportSection.style.display = 'none';
     startupSection.style.display = 'none';
     chatExpertSection.style.display = 'block';
+    const stickyNotesSection = document.getElementById('sticky-notes');
+    stickyNotesSection.style.display = 'none';
+});
+
+// Sticky notes
+
+const stickBtn = document.getElementById('sticky-notes-btn');
+
+stickBtn.addEventListener('click', function() {
+    const stickyNotesSection = document.getElementById('sticky-notes');
+    stickyNotesSection.style.display = 'block';
+    const chatExpertSection = document.getElementById('expertChat');
+    const aiSupportSection = document.getElementById('ai-support-section');
+    const expenseTrackerSection = document.getElementById('expense-tracker-section');
+    const startupSection = document.getElementById('startup-expense');
+    expenseTrackerSection.style.display = 'none';
+    aiSupportSection.style.display = 'none';
+    startupSection.style.display = 'none';
+    chatExpertSection.style.display = 'none';
+
 });

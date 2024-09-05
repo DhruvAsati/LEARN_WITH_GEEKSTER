@@ -1019,3 +1019,171 @@ section {
     font-weight: bold;
     display: none;
 }
+
+
+/* Sticky notes CSS */
+#sticky-notes{
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+.container1{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+.notes-section{
+    width: 50%;
+    height: 100%;
+    background-color:beige;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+   
+}
+.sticky-heading{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    animation-name: color-flow;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes color-flow{
+    0% {
+        color: red;
+    }
+    50% {
+        color: blue;
+    }
+    100% {
+        color: red;
+    }
+}
+
+.note-writer{
+    width: 80%;
+    margin-top: 10vw;
+    margin-left: 5vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items :center;
+    animation-name: zoom-out;
+    animation-delay: 0.5s;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+/* Animation */
+@keyframes zoom-out {
+    0% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+    
+}
+#note-bg{
+    margin-left: 30px;
+    cursor: pointer;
+    fill: green;
+    background-color: white;
+   
+}
+textarea{
+   margin-right: 30px;
+   padding: 20px;
+   border-radius:10px; 
+   box-shadow: 0px 0px 3px 3px rgb(224, 175, 175);
+}
+#add-note-btn{
+    margin: 3rem 5vw;
+    padding: 1.2rem 2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    border: none;
+    color: white;
+    background: linear-gradient(to right, rgba(240, 136, 110, 0.5), rgba(230, 37, 37, 0.5));
+    animation-name: move;
+    animation-delay: 0.4s;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    cursor: pointer;
+}
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(1rem);
+    }
+    
+}
+#add-note-btn:hover{
+    background: linear-gradient(to left, rgba(240, 136, 110, 1), rgba(230, 37, 37, 1));
+}
+
+.notes-display{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+.notes-display .header h1{
+    text-align: center;
+}
+
+.notes-display #notes-list{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 2rem;
+    
+}
+/* .notes-display #notes-list div{
+    margin: 1rem;
+    padding: 20px;
+    width: 200px;
+    height: 180px;
+    text-align: justify;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+} */
+#text-message{
+    margin-top: 30%;
+    font-size: 1.2rem;
+}
+
+.notes-display #notes-list button{
+    background-color: transparent;
+    border: none;
+    margin-left: 40px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.text-formatter{
+    margin-top: 2rem;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 5vw;
+}
+.text-formatter button{
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 10px;
+    background-color: rgb(240, 136, 110);
+}
