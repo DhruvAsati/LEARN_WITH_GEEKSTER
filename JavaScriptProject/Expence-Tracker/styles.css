@@ -228,6 +228,20 @@ section {
 #expenseList li:hover {
     background-color: #f1f1f1;
 }
+#expense-list{
+    margin-top: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+#expense-list li {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 /* Data Visualization Section */
 #dataVisualization {
@@ -779,6 +793,17 @@ section {
     margin-right: 1rem;
 }
 
+#expense-description{
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #f5f5f5;
+    color: black;
+    padding: 2rem;
+    border-radius: 10px;
+}
 
 
 /* Expert Chat Section */
