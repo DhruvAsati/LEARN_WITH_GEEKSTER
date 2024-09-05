@@ -7,19 +7,23 @@ body, h1, p, a, button {
 
 /* General styling */
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #89f7fe, #66a6ff); /* Bright background */
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #4e54c8, #8f94fb); /* Sleek gradient background */
     color: #333;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    transition: background 0.5s ease; /* Smooth background transition */
 }
 
 /* Header styling */
 header {
-    background: #ffffff;
-    padding: 10px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav {
@@ -29,27 +33,33 @@ nav {
 }
 
 .logo img {
-    max-width: 150px;
+    max-width: 140px;
+    transition: transform 0.4s ease; /* Smooth logo hover effect */
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* Slightly enlarges logo on hover */
 }
 
 .login-SignUp {
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
 .login-SignUp a button {
-    padding: 10px 20px;
+    padding: 10px 25px;
     border: none;
-    border-radius: 5px;
-    background-color: #66a6ff;
+    border-radius: 50px; /* Rounded buttons */
+    background-color: #8f94fb;
     color: #fff;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.4s, transform 0.3s;
 }
 
 .login-SignUp a button:hover {
-    background-color: #0056b3;
+    background-color: #4e54c8;
+    transform: translateY(-3px); /* Button elevates slightly on hover */
 }
 
 /* Main container styling */
@@ -58,123 +68,152 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     padding: 50px 20px;
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 .heading h1 {
     font-size: 3em;
     margin-bottom: 20px;
     color: #ffffff;
+    letter-spacing: 1.5px;
+    text-transform: uppercase; /* Uppercase headings */
+    animation: slideInFromLeft 0.8s ease-out; /* Text sliding effect */
 }
 
 .heading p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
+    font-size: 1.3em;
+    margin-bottom: 40px;
     color: #f5f5f5;
+    animation: slideInFromRight 0.8s ease-out;
+}
+
+@keyframes slideInFromLeft {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes slideInFromRight {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
 }
 
 .create-expense button {
-    padding: 15px 30px;
+    padding: 15px 40px;
     border: none;
-    border-radius: 5px;
-    background-color: #66a6ff;
+    border-radius: 50px;
+    background-color: #4e54c8;
     color: #fff;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.2em;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .create-expense button:hover {
-    background-color: #0056b3;
+    background-color: #8f94fb;
+    transform: translateY(-3px);
 }
-
-/* Footer styling */
-footer {
-    background-color: #ffffff;
-    text-align: center;
-    padding: 10px 0;
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-}
-
-footer p {
-    color: #333;
-}
-/* Previous CSS remains the same */
 
 /* Modal styling */
 .modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4); /* Black with transparency */
+    background-color: rgba(0, 0, 0, 0.6);
     justify-content: center;
     align-items: center;
+    animation: fadeIn 0.5s;
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    border-radius: 10px;
-    width: 80%;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
     max-width: 400px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
+    transform: translateY(-50px);
+    animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+    0% { transform: translateY(-50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
 
 .modal-header {
-    font-size: 1.5em;
-    margin-bottom: 15px;
+    font-size: 1.8em;
     color: #333;
+    margin-bottom: 20px;
 }
 
 .modal input[type="text"], 
 .modal input[type="password"] {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.modal input[type="text"]:focus,
+.modal input[type="password"]:focus {
+    border-color: #8f94fb;
 }
 
 .modal button {
-    padding: 10px 20px;
+    padding: 12px 30px;
     border: none;
-    border-radius: 5px;
-    background-color: #66a6ff;
+    border-radius: 30px;
+    background-color: #4e54c8;
     color: #fff;
     font-weight: bold;
-    cursor: pointer;
-    margin-top: 15px;
-    width: 100%;
     font-size: 1.1em;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .modal button:hover {
-    background-color: #0056b3;
+    background-color: #8f94fb;
+    transform: scale(1.05); /* Slightly enlarge button on hover */
 }
 
 /* Close button */
 .close {
-    color: #aaa;
+    color: #333;
     float: right;
     font-size: 1.5em;
     font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+.close:hover {
+    color: #8f94fb;
+}
+
+/* Footer styling */
+footer {
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    padding: 15px 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    color: #333;
+    font-size: 0.9em;
 }
