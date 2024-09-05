@@ -1007,6 +1007,12 @@ section {
     display: none;
     margin-top: 20px;
 }
+#qrcode{
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
 
 #payment-status {
     margin-top: 20px;

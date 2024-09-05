@@ -11,10 +11,12 @@ document.addEventListener('DOMContentLoaded', function () {
             menuIcon.textContent = 'menu';
             document.querySelector('section').style.margin = '0 auto';
             document.getElementById("ai-support-section").style.margin = '0 auto';
+            document.getElementById('expertChat').style.margin = "0 auto";
         } else {
             menuIcon.textContent = 'close';
             document.querySelector('section').style.marginLeft = '250px';
             document.getElementById("ai-support-section").style.marginLeft = '220px';
+            document.getElementById('expertChat').style.marginLeft = "250px";
         }
     });
 
@@ -147,24 +149,31 @@ document.addEventListener('DOMContentLoaded', function () {
     const startupSection = document.getElementById('startup-expense');
 
     aiSupportItem.addEventListener("click", () => {
-        aiSupportContent.style.display = aiSupportContent.style.display === "none" ? "block" : "none";
+        aiSupportSection.style.display = 'block';
+        startupSection.style.display = 'none';
         expenseTrackerSection.style.display = "none";
+        document.getElementById('expertChat').style.display = "none";
     });
 
     document.getElementById('ai-support-button').addEventListener('click', function() {
         expenseTrackerSection.style.display = 'none';
         aiSupportSection.style.display = 'block';
+        startupSection.style.display = 'none';
+        document.getElementById('expertChat').style.display = "none";
     });
 
     document.getElementById('expense-tracker-button').addEventListener('click', function() {
         expenseTrackerSection.style.display = 'block';
         aiSupportSection.style.display = 'none';
+        startupSection.style.display = 'none';
+        document.getElementById('expertChat').style.display = "none";
     });
 
     document.getElementById('startUp-expence-btn').addEventListener('click', function() {
         startupSection.style.display = 'block';
         expenseTrackerSection.style.display = 'none';
         aiSupportSection.style.display = 'none';
+        document.getElementById('expertChat').style.display = "none";
     });
 });
 

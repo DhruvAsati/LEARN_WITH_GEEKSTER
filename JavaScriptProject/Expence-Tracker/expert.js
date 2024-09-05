@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (paymentType === 'UPI') {
             const upiId = document.getElementById('upi-id').value.trim();
             if (upiId === "") {
-                paymentStatus.textContent = 'Please enter a valid UPI ID.';
+                paymentStatus.textContent = 'Please enter a valid UPI ID Or Scan Qr.';
                 return;
             }
             isValid = true;
