@@ -27,11 +27,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Pay Button
-    const payButton = document.getElementById("pay-button");
-    payButton.addEventListener("click", function() {
-        document.getElementById("payment-options-container").style.display = "block";
-        document.getElementById("qr-code").style.display = "none"; // Hide QR code initially
-    });
+    // const payButton = document.getElementById("pay-button");
+    // payButton.addEventListener("click", function() {
+    //     document.getElementById("payment-options-container").style.display = "block";
+    //     document.getElementById("qr-code").style.display = "none"; // Hide QR code initially
+    // });
 
     // Function to send message
     function sendMessage() {
@@ -108,15 +108,42 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Process Payment
-    window.processPayment = function() {
-        const paymentStatus = document.getElementById("payment-status");
-        paymentStatus.textContent = "Payment processing...";
+    
+});    
+document.addEventListener("DOMContentLoaded", function () {
+    // Show payment options when "Pay" button is clicked
+    document.getElementById('pay-button').addEventListener('click', function() {
+        document.getElementById('payment-options-container').style.display = 'block';
+    });
 
-        // Simulate payment processing
-        setTimeout(function() {
-            paymentStatus.textContent = "Scan Qr Code";
-            document.getElementById("qr-code").style.display = "block"; // Show QR code after successful payment
-        }, 2000);
-    };
+    // Function to show respective payment forms
+    function showPaymentForm(method) {
+        // Hide all forms initially
+        const forms = document.querySelectorAll('.payment-form');
+        forms.forEach(form => form.style.display = 'none');
+
+        // Show the selected payment form based on the payment method
+        if (method === 'upi') {
+            document.getElementById('upi-form').style.display = 'block';
+        } else if (method === 'card') {
+            document.getElementById('card-form').style.display = 'block';
+        } else if (method === 'netbanking') {
+            document.getElementById('netbanking-form').style.display = 'block';
+        } else if (method === 'wallet') {
+            document.getElementById('wallet-form').style.display = 'block';
+        }
+    }
+
+    // Expose the function globally to be accessible from inline onclick attributes
+    window.showPaymentForm = showPaymentForm;
+
+    // Function to process the payment
+    function processPayment(paymentType) {
+        const paymentStatus = document.getElementById('payment-status');
+        paymentStatus.style.display = 'block';
+        paymentStatus.textContent = paymentType + " Payment Submitted Successfully!";
+    }
+
+    // Expose the function globally to be accessible from inline onclick attributes
+    window.processPayment = processPayment;
 });
