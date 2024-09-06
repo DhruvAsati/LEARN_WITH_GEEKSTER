@@ -166,6 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('expertChat').style.display = "none";
         const stickyNotesSection = document.getElementById('sticky-notes');
         stickyNotesSection.style.display = 'none';
+        deleteAll.style.display = 'none';
     });
 
     document.getElementById('expense-tracker-button').addEventListener('click', function() {
@@ -175,6 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('expertChat').style.display = "none";
         const stickyNotesSection = document.getElementById('sticky-notes');
         stickyNotesSection.style.display = 'none';
+        deleteAll.style.display = 'block';
     });
 
     document.getElementById('startUp-expence-btn').addEventListener('click', function() {
@@ -184,6 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('expertChat').style.display = "none";
         const stickyNotesSection = document.getElementById('sticky-notes');
         stickyNotesSection.style.display = 'none';
+        deleteAll.style.display = 'block';
     });
 });
 
@@ -300,6 +303,14 @@ document.getElementById('chatExpertBtn').addEventListener('click', function() {
     stickyNotesSection.style.display = 'none';
 });
 
+const deleteAll = document.getElementById('delete-all-btn');
+
+deleteAll.addEventListener('click', function() {
+    localStorage.clear();
+    window.location.reload();
+  
+});
+
 // Sticky notes
 
 const stickBtn = document.getElementById('sticky-notes-btn');
@@ -315,5 +326,7 @@ stickBtn.addEventListener('click', function() {
     aiSupportSection.style.display = 'none';
     startupSection.style.display = 'none';
     chatExpertSection.style.display = 'none';
+    deleteAll.style.display = 'none';
 
 });
+
