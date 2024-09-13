@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+    <title>React</title>
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c5bcbc;
+        }
+        .h1-heading {
+            color: blue;
+            font-size: 3rem;
+            margin: 1rem;
+            
+        }
+        #root {
+            width: 100%;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f2f2f2;
+        }
+        p{
+            text-align: justify;
+            width: 50%;
+            font-size: 1.3rem;
+            word-spacing: 1px;
+            margin: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>React JS</h1>
+    <hr>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const MyReactApp = () => {
+            return (
+                <div>
+                    <h1 className="h1-heading">Learn Web Development </h1>
+                    <div>
+                        <p>Welcome to the MDN learning area. This set of articles aims to provide complete beginners to web development with fundamental skills for coding websites.</p>
+                    </div>
+                    <div>
+                        <p>
+                            The aim is not to take you from "beginner" to "expert" but to take you from "beginner" to "comfortable." From there, you should be able to start making your way, learning from <a href = "https://developer.mozilla.org/en-US/">the rest of MDN</a>, and other intermediate to advanced resources that assume a lot of previous knowledge</p>
+                            <p>
+                            If you are a complete beginner, web development can be challenging — we will hold your hand and provide enough detail for you to feel comfortable and learn the topics properly. You should feel at home whether you are a student learning web development (on your own or as part of a class), a teacher looking for class materials, a hobbyist, or someone who just wants to understand more about how web technologies work. 
+                            </p>    
+                    </div>
+                </div>
+            );
+        };
+
+        const root = document.getElementById("root");
+        ReactDOM.render(<MyReactApp />, root);
+    </script>
+</body>
+</html>
