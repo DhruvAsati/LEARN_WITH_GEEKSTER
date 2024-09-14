@@ -2,72 +2,65 @@ import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  const [password, setPassword] = useState(''); // State for generated password
-  const [passwordLength, setPasswordLength] = useState(8); // Default password length
-  const [passwordType, setPasswordType] = useState('mixed'); // Default password type
-  const inputPassRef = useRef(null); // Ref for the password input
+  const [password, setPassword] = useState('');
+  const [passwordLength, setPasswordLength] = useState(8); 
+    const [passwordType, setPasswordType] = useState('mixed');
+    const inputPassRef = useRef(null);
 
-  // Generate random password
-  const randomPassword = () => {
-    const num = '1234567890';
-    const specialChar = '!@#$%^&*()_+~`|}{[]\\:;?><,./-=';
-    const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const lowerCase = 'abcdefghijklmnopqrstuvwxyz';
+ 
+  const createRandomPassword = () => {
+    const numbers = '1234567890';
+    const specialCharacters = '!@#$%^&*()_+~`|}{[]\\:;?><,./-='; 
+    const upperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz';
 
-    let characterPool = ''; // Pool of characters to generate the password from
-
-    // Set character pool based on selected type
+    let characterOptions = '';
     switch (passwordType) {
       case 'mixed':
-        characterPool = num + specialChar + uppercase + lowerCase;
+        characterOptions = numbers + specialCharacters + upperCaseLetters + lowerCaseLetters;
         break;
       case 'uppercase':
-        characterPool = uppercase;
+        characterOptions = upperCaseLetters;
         break;
       case 'lowercase':
-        characterPool = lowerCase;
+        characterOptions = lowerCaseLetters;
         break;
       case 'number':
-        characterPool = num;
+        characterOptions = numbers;
         break;
       case 'special':
-        characterPool = specialChar;
+        characterOptions = specialCharacters;
         break;
       default:
-        characterPool = num + specialChar + uppercase + lowerCase;
+        characterOptions = numbers + specialCharacters + upperCaseLetters + lowerCaseLetters;
     }
-
-    let newPassword = '';
+    let newGeneratedPassword = '';
     for (let i = 0; i < passwordLength; i++) {
-      const randomIndex = Math.floor(Math.random() * characterPool.length);
-      newPassword += characterPool.charAt(randomIndex);
+      const randomChar = Math.floor(Math.random() * characterOptions.length);
+      newGeneratedPassword += characterOptions.charAt(randomChar);
     }
 
-    return newPassword;
+    return newGeneratedPassword;
+  };
+  const handleGeneratePassword = () => {
+    const newPass = createRandomPassword();
+    setPassword(newPass);
   };
 
-  // Refresh password
-  const generatePassword = () => {
-    const newPass = randomPassword();
-    setPassword(newPass); // Update password in state
-  };
-
-  // Copy password to clipboard
-  const copyPassword = () => {
+  const handleCopyPassword = () => {
     if (inputPassRef.current) {
       navigator.clipboard.writeText(inputPassRef.current.value);
-      alert('Password copied to clipboard');
+      alert('Password copied to clipboard!');
     }
   };
 
   useEffect(() => {
-    generatePassword(); // Generate a password when component mounts or when the length/type changes
-  }, [passwordLength, passwordType]); // Regenerate password when length or type changes
+    handleGeneratePassword();
+  }, [passwordLength, passwordType]);
 
   return (
     <div id="container">
       <select
-        name="Password-size"
         id="Password-Size"
         value={passwordLength}
         onChange={(e) => setPasswordLength(parseInt(e.target.value))}>
@@ -81,15 +74,15 @@ function App() {
         <input
           type="text"
           id="Password"
-          placeholder="random Password"
+          placeholder="Generated Password"
           value={password}
           readOnly
           ref={inputPassRef}
         />
-        <button id="refresh" onClick={generatePassword}>
+        <button id="refresh" onClick={handleGeneratePassword}>
           <span className="material-symbols-outlined">refresh</span>
         </button>
-        <button id="copy" onClick={copyPassword}>
+        <button id="copy" onClick={handleCopyPassword}>
           <span className="material-symbols-outlined">content_copy</span>
         </button>
       </div>
@@ -97,7 +90,6 @@ function App() {
       <div id="checkboxes">
         <input
           type="checkbox"
-          name="password-type"
           value="mixed"
           checked={passwordType === 'mixed'}
           onChange={(e) => setPasswordType(e.target.value)}
@@ -106,7 +98,6 @@ function App() {
 
         <input
           type="checkbox"
-          name="password-type"
           value="uppercase"
           checked={passwordType === 'uppercase'}
           onChange={(e) => setPasswordType(e.target.value)}
@@ -115,7 +106,6 @@ function App() {
 
         <input
           type="checkbox"
-          name="password-type"
           value="lowercase"
           checked={passwordType === 'lowercase'}
           onChange={(e) => setPasswordType(e.target.value)}
@@ -124,21 +114,19 @@ function App() {
 
         <input
           type="checkbox"
-          name="password-type"
           value="number"
           checked={passwordType === 'number'}
           onChange={(e) => setPasswordType(e.target.value)}
         />
-        <label htmlFor="number">Number</label>
+        <label htmlFor="number">Numbers</label>
 
         <input
           type="checkbox"
-          name="password-type"
           value="special"
           checked={passwordType === 'special'}
           onChange={(e) => setPasswordType(e.target.value)}
         />
-        <label htmlFor="special">Special Character</label>
+        <label htmlFor="special">Special Characters</label>
       </div>
     </div>
   );
