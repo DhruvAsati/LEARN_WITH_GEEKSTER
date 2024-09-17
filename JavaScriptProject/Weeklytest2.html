@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #2323de;
+            height: 100vh;
+        }
+        .heading{
+            font-size: 2rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0,0,0);
+            letter-spacing: 10px;
+            text-transform: uppercase;
+        }
+        .birth-date-section{
+            width: 40vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            border-radius: 10px;
+            box-shadow: 0  0 10px rgba(0,0,0);
+
+        }
+        .birth-date-section #birth-date-selector{
+            width: 20vw;
+            height: 3rem;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            margin-top: 20px;
+
+        }
+        .birth-date-section .calculate{
+            width: 20%;
+            height: 3rem;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: black;
+            border-radius: 20px;
+            margin: 30px 0;
+        }
+        .calculated-date{
+            width: 40vw;
+            height: 15%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 2rem;
+            
+        }
+        .date{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            background-color: black;
+            border-radius: 20px;
+            box-shadow: 0  0 10px rgba(0,0,0);
+        }
+       
+        .text{
+            color: grey;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="heading">
+        Age Calculator
+    </h1>
+    
+    <div class="birth-date-section">
+        <input type="date" name="date" id="birth-date-selector">
+        <button class="calculate">
+            Calculate
+        </button>
+    </div>
+
+    <div class="calculated-date">
+        <div class="date">
+            <p>Your age is <span class="calculated-dateNum">0</span> years old</p>
+        </div>
+    </div>
+
+    <script>
+        const birthDateSelector = document.getElementById('birth-date-selector');
+        const calculateButton = document.querySelector('.calculate');
+        const dateNum = document.querySelector('.calculated-dateNum');
+        const calcMonth = document.querySelector('.calculated-month');
+        const calcDays = document.querySelector('.calculated-days');
+        
+        calculateButton.addEventListener('click', function() {
+             const birthDate = new Date(birthDateSelector.value);
+             const currentDate = new Date();
+             const diff = Math.abs(currentDate - birthDate);
+             const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+             dateNum.textContent = years;
+            });
+    </script>
+
+</body>
+</html>

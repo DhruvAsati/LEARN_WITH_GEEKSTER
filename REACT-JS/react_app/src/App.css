@@ -1,0 +1,29 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #c5bcbc;
+}
+.h1-heading {
+  color: blue;
+  font-size: 3rem;
+  text-align: center;
+  
+}
+#root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+}
+p{
+  text-align: justify;
+  width: 50%;
+  font-size: 1.3rem;
+  word-spacing: 1px;
+  margin: 1.5rem;
+}

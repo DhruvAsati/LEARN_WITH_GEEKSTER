@@ -1,0 +1,243 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+}
+
+header nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 10px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+.logo h1{
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  
+}
+
+.search button{
+    background-color: #fff;
+    border: none;
+    outline: none;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 1rem;
+    transition: background-color 0.3s ease;
+    &:hover{
+        background-color: #333;
+    }
+    &:hover a{
+       
+        color: #fff;
+    }
+}
+.search button a{
+    color: #333;
+    text-decoration: none;
+}
+body::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.shutterstock.com/image-illustration/digital-cryptocurrency-block-chain-market-600nw-1939827760.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.hero{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to left,rgba(0,0,0,0.5), rgba(0,0,0,0.6));
+}
+.hero-text{
+    text-align: center;
+    width: 60%;
+    
+}
+.hero-text h1{
+    margin: 1rem 0;
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.hero-text p{
+    margin: 20px 0;
+    letter-spacing: 2px;
+}
+.hero-text button{
+    background-color: #fff;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    animation: bounce  2s;
+    transition: all 0.3s ease;
+    &:hover{
+        background-color: #f1c40f;
+        color: white;
+    }
+}
+.hero-text button a{
+    text-decoration: none;
+    color: #333;
+}
+.topCoin{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+  
+}
+.topCoin h2{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    color: white;
+    animation: bounce;
+    animation-delay: 2s;
+    animation-duration: 3s;
+    &:hover{
+        color: #f1c40f;
+     
+    }
+}
+#coin-item{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgba(0,0,0,0.8);
+    transition: all 0.3s ease;
+   
+    &:hover{
+        background-color: rgba(0,0,0,0.9);
+    }
+}
+.crypto-card{
+    width: 250px;
+    height: 100%;
+    margin: 0 1rem;
+    display: flex;
+    align-items: center;
+    animation: scroll 20s infinite ease-in-out; 
+    animation-direction: alternate;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover{
+        transform: scale(1.05);
+    }
+}
+@keyframes scroll{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-520%);
+    }
+}
+.crypto-card img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 1rem;
+}
+
+.crypto-card h3{
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    color: white;
+}
+.crypto-card span{
+    font-size: 1rem;
+    color: #999;
+    transition: all 0.3s ease;
+    &:hover{
+        color: #f1c40f;
+    }
+}
+
+footer{
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+.social-media{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    gap: 1rem;
+    font-size: 1.5rem;
+    a{
+        margin-right: 10px;
+        text-decoration: none;
+        color: white;
+    }
+    a:hover{
+        color: #f1c40f;
+        animation: up  1s;
+
+        
+    }
+    
+}
+
+@keyframes up{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-10px);
+    }
+}
+

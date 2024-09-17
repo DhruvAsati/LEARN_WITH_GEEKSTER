@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Sticky Notes</title>
+</head>
+<body>
+    <div class="container">
+            
+        <div class="notes-section">
+            <div class="header sticky-heading">
+                <h1 style="text-align: center">Sticky Notes</h1>
+            </div>
+            <div class="note-writer">
+                <textarea name="notes" id="note-writter-tab" cols="70" rows="10" placeholder="//write a note here"></textarea>
+                <input type="color" id="note-bg" >
+            </div>
+            <div class="text-formatter">
+                <button class="text-format-btn" id="bold">B</button>
+                <button class="text-format-btn" id="italic">I</button>
+                <button class="text-format-btn" id="underline">U</button>
+                <button class="text-format-btn" id="color">Color</button>
+                <button class="text-format-btn" id="size">Size</button>
+                <button class="text-format-btn" id="align-left">Left</button>
+                <button class="text-format-btn" id="align-center">Center</button>
+                <button class="text-format-btn" id="align-right">Right</button>
+                <button class="text-format-btn" id="align-justify">Justify</button>
+                <button class="text-format-btn" id="undo">Undo</button>
+            </div>
+            <button id="add-note-btn">
+                Add Notes
+            </button>
+        </div>
+
+        <!-- Notes will be displayed here -->
+        <div class="notes-display">
+            <div class="header">
+                <h1>Your Notes</h1>
+            </div>
+
+            <div id="text-message">
+                <p >You have not added a note yet.</p>
+            </div>
+
+            <div id="notes-list">
+                <audio src="../Audio/pick-92276.mp3" id="added-sound"></audio>
+                <!-- Notes will be added dynamically here -->
+                 <p id="notes">
+
+                 </p>
+                 <button id="remove">
+                    <audio src="../Audio/mag-remove-92075.mp3" id="remove-sound"></audio>
+                 </button>
+            </div>
+            
+    </div>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>

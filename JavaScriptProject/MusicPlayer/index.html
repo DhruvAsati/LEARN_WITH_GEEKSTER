@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>Music Player</title>
+</head>
+<body>
+    <header>
+        <h1>Music Player</h1>
+    </header>
+    <main>
+        <div class="player">
+            <div class="controls">
+                <button class="prev">Previous</button>
+                <button class="play">Play</button>
+                <button class="next">Next</button>
+            </div>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <div class="time-display">
+                <span class="current-time">00:00</span> / <span class="total-time">00:00</span>
+            </div>
+            <div class="volume-controls">
+                <button class="volume-up">+</button>
+                <input type="range" min="0" max="1" step="0.01" class="volume-slider">
+                <button class="volume-down">-</button>
+                <span class="volume-percentage">50%</span>
+            </div>
+        </div>
+        </main>
+
+        <script>
+            const player = document.querySelector('.player');
+            const playButton = document.querySelector('.play');
+            const prevButton = document.querySelector('.prev');
+            const nextButton = document.querySelector('.next');
+            const progressBar = document.querySelector('.progress');
+            const currentTimeDisplay = document.querySelector('.current-time');
+            const totalTimeDisplay = document.querySelector('.total-time');
+            const volumeSlider = document.querySelector('.volume-slider');
+            const volumePercentageDisplay = document.querySelector('.volume-percentage');
+            
+            //API key == 09b43e9b4bc386c5eefef14b599bf24c
+            //secret key == c6543be5d427f70061bb5b08d7e54fc1
+            //url =  http://www.last.fm/api/auth/?api_key=xxx
+
+            const apiKey = '09b43e9b4bc386c5eefef14b599bf24c';
+            let url = `http://www.last.fm/api/auth/?api_key = ${apiKey}`;
+            
+            // Fetch user's last.fm credentials
+
+            fetch(url)
+               .then(response => response.json())
+               .then(data => {
+                    console.log(data);
+                    // Store the user's credentials
+                    // Save the user's credentials in local storage
+                    localStorage.setItem('lastfm_credentials', JSON.stringify(data));
+                })
+               .catch(error => console.error('Error:', error));
+               
+            // Fetch user's top artists and display them
+            const userCredentials = JSON.parse(localStorage.getItem('lastfm_credentials'));
+            const userToken = userCredentials.token;
+            url = `http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${userCredentials.name}&api_key=${apiKey}&format=json&limit=5`;
+            
+            fetch(url)
+             .then(response => response.json())
+             .then(data => {
+                 const topArtists = data.topartists.artist;
+                 console.log(topArtists);
+                 // Display the top artists
+                 // Add event listeners to the artist images to play their top tracks
+             });
+
+
+
+
+        </script>
+        
+</body>
+</html>

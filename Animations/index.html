@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+           min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;  
+           
+        }
+        .images{
+            display: flex;
+            width:1100px;
+            -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0004);
+            justify-content: space-evenly;
+        }
+        .images img{
+            max-width: 400px;
+            transform-origin: center;
+            transform: perspective(800px) rotateY(20deg);
+            transition: 0.5s;
+            border-radius: 5px;
+            box-shadow: 0 0 8px grey;
+        }
+        .images:hover img{
+            opacity: 0.3;
+        }
+        .images img:hover{
+            transform: perspective(800px) rotateY(0deg);
+            opacity: 1;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="images">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT01pKxQoTf3-2wBrWB9ONAWkfdaWyyhL-2IA&s" alt="img1" class="img1">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfxrgftupB48X_XKuuTxClCHB6Nw2Sc5Vtkg&s" alt="img2" class="img2">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvhbSj5sDztZohSYoZwjv0pSfVYAnj7iLf9Q&s" alt="img3" class="img3">
+    </div>
+</body>
+</html>l

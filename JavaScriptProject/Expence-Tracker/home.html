@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    />
+    <link rel="shortcut icon" href="./assests/logo.png" type="image/x-icon">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="startUp.css">
+
+    <title>Expense Oracle: Predict and Conquer Your Finances</title>
+  </head>
+  <body>
+    <!--HTML structure for expense tracker-->
+    <header>
+      <nav>
+        <span class="material-symbols-outlined menu-icon"> menu </span>
+       
+          <div id="logout"> 
+            <a href="index.html">
+            <button id="logoutButton">Log Out
+              <span class="material-symbols-outlined move-animation"> logout </span>
+            </button></a> 
+            
+         
+        </div>
+        
+      </nav>
+    </header>
+
+    <main>
+      <div class="menu">
+        <div class="menu-sec" id="expense-tracker-button">General Purpose</div>
+        <div class="menu-sec" id="startUp-expence-btn">StartUp Company</div>
+        <div class="menu-sec" id="ai-support-button">AI Support (24*7)</div>
+        <div class="menu-sec" id="sticky-notes-btn">My Expense Notes</div>
+        <div class="menu-sec" id="chatExpertBtn">Chat With Finance Expert</div>
+      </div>
+
+      <!-- Expense Tracker Section -->
+      <section id="expense-tracker-section">
+        <div class="navbar">
+          <h1>Daily Finance Management</h1>
+          <div class="nav-sec">
+            <ul>
+              <li><a href="#expenseTracker">Expense Tracker</a></li>
+              <li><a href="#dataVisualization">Data Visualization</a></li>
+              <li><a href="#ai-support">AI Financial Advisor</a></li>
+              <li><a href="#taxCalculator">Taxes Calculator</a></li>
+            </ul>
+          </div>
+          <div class="darkMode">
+            <button id="dark">Night Mode</button>
+          </div>
+        </div>
+
+        <!-- Expense Tracker Content -->
+        <div id="expenseTracker">
+          <form action="#">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required />
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+              <option value="">Select</option>
+              <option value="groceries">Groceries</option>
+              <option value="eatingOut">Eating Out</option>
+              <option value="transportation">Transportation</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="miscellaneous">Miscellaneous</option>
+            </select>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required />
+            <button type="submit">Add Expense</button>
+          </form>
+          <ul id="expenseList"></ul>
+        </div>
+
+        <!-- Data Visualization Section -->
+        <div id="dataVisualization">
+          <h2>Data Visualization</h2>
+          <canvas id="myChart"></canvas>
+        </div>
+
+        <!-- AI Financial Advisor Section -->
+        <div
+          class="AI-setting-items"
+          id="ai-support"
+          style="background-color: #f4f4f9"
+        >
+          <h2>AI Financial Advisor</h2>
+          <p class="setting-text">Your spending looks balanced. 😊</p>
+        </div>
+
+        <!-- Taxes Calculator Section -->
+        <div id="taxCalculator">
+          <h2>Taxes Calculator</h2>
+          <br />
+          <form>
+            <!-- Tax Calculator Form Content -->
+            <label for="income">Income:</label>
+            <input type="number" id="income" name="income" required />
+            <label for="taxRate">Tax Rate:</label>
+            <input type="number" id="taxRate" name="taxRate" required />
+            <button type="submit">Calculate</button>
+
+            <!-- Tax Calculation Results -->
+            <div id="taxAmount">
+              <p>Tax Amount: $0</p>
+            </div>
+            <div id="netIncome">
+              <p>Net Income: $0</p>
+            </div>
+
+            <!-- Tax Breakdown -->
+            <div id="taxBreakdown">
+              <br />
+              <p>Tax Breakdown:</p>
+              <br />
+              <div id="taxBreakdownChart">
+                <table>
+                  <tr>
+                    <th>Income Threshold</th>
+                    <th>Tax Amount</th>
+                  </tr>
+                  <tr>
+                    <td>Income above ₹1000000.00</td>
+                    <td>20%</td>
+                  </tr>
+                  <tr>
+                    <td>Income above ₹700000.00</td>
+                    <td>15%</td>
+                  </tr>
+                  <tr>
+                    <td>Income above ₹500000.00</td>
+                    <td>10%</td>
+                  </tr>
+                  <tr>
+                    <td>Income above ₹300000.00</td>
+                    <td>5%</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div id="taxToPay">
+              <p>Tax To Pay: <span>₹0</span></p>
+            </div>
+            <div id="leftAmount">
+              <p>Amount Left After Pay: <span>₹0</span></p>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- AI Support Section -->
+      <section id="ai-support-section" class="main" style="display: none">
+        <main>
+          <div class="container">
+            <div class="upper-section">
+              <div class="logo-section">
+                <h2>Gemini</h2>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#FFFFFF"
+                >
+                  <path d="M480-360 280-560h400L480-360Z" />
+                </svg>
+              </div>
+              <div class="user-upgrade">
+                <button>
+                  <img
+                    src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-gemini-icon.png"
+                    alt="icon"
+                  />
+                  Try Gemini Advanced
+                </button>
+                <div class="apps">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24px"
+                    viewBox="0 -960 960 960"
+                    width="24px"
+                    fill="#FFFFFF"
+                  >
+                    <path
+                      d="M240-160q-33 0-56.5-23.5T160-240q0-33 23.5-56.5T240-320q33 0 56.5 23.5T320-240q0 33-23.5 56.5T240-160Zm240 0q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm240 0q-33 0-56.5-23.5T640-240q0-33 23.5-56.5T720-320q33 0 56.5 23.5T800-240q0 33-23.5 56.5T720-160ZM240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400ZM240-640q-33 0-56.5-23.5T160-720q0-33 23.5-56.5T240-800q33 0 56.5 23.5T320-720q0 33-23.5 56.5T240-640Zm240 0q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Zm240 0q-33 0-56.5-23.5T640-720q0-33 23.5-56.5T720-800q33 0 56.5 23.5T800-720q0 33-23.5 56.5T720-640Z"
+                    />
+                  </svg>
+                </div>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlJqngNJ42uWE0Zy6S6rHTuW8pn6p-cuogyQ&s"
+                  id="user-account-icon"
+                  alt="User Account"
+                />
+              </div>
+            </div>
+            <div class="user-data">
+              <div class="header">
+                <h1>Hello, dhruv asati</h1>
+                <br />
+                <p>How can I help you today?</p>
+              </div>
+              <div class="cards">
+                <div class="cards-prompt">
+                  <p>Look up a Linux shell command for a specific task</p>
+                </div>
+                <div class="cards-prompt">
+                  <p>
+                    Recommend new types of water sports, including pros & cons
+                  </p>
+                </div>
+                <div class="cards-prompt">
+                  <p>Ideas to surprise a friend on their birthday</p>
+                </div>
+                <div class="cards-prompt">
+                  <p>
+                    Act like Mowgli from The Jungle Book and answer questions
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="input-section">
+              <input
+                type="text"
+                name="search"
+                id="input-field"
+                placeholder="Enter your prompt here"
+                required
+                autofocus
+                style="color: white; font-size: 1rem"
+              />
+              <button id="btn">
+                <span class="material-symbols-outlined"> send </span>
+              </button>
+            </div>
+          </div>
+        </main>
+      </section>
+
+      <section id="startup-expense">
+        <div class="navbar">
+            <h1>Start-Up Finance Management</h1>
+            <div class="nav-sec">
+                <ul>
+                    <li><a href="#startup-expenseTracker">Expense Tracker</a></li>
+                    <li><a href="#data-visualization">Data Visualization</a></li>
+                    <li><a href="#ai-financial-advisor">AI Financial Advisor</a></li>
+                    <li><a href="#tax-calculator">Taxes Calculator</a></li>
+                </ul>
+            </div>
+            <div class="darkMode">
+                <button id="dark-mode-toggle">Night Mode</button>
+            </div>
+        </div>
+    
+        <!-- Expense Tracker Content -->
+        <div id="startup-expenseTracker">
+            <form action="#">
+                <label for="expense-date">Date:</label>
+                <input type="date" id="expense-date" name="date" required />
+                
+                <label for="file-upload">Select a file:</label>
+                <input type="file" id="file-upload" name="file" accept=".csv,.xlsx,.ods,.pdf" />                
+                <label for="expense-description">Description:</label>
+                <input type="text" id="expense-description" name="description" required>
+                
+                <label for="expense-type">Type:</label>
+                <select id="expense-type" name="type" required>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                    <option value="savings">Savings</option>
+                    <option value="investment">Investment</option>
+                    <option value="loan">Loan</option>
+                    <option value="other">Other</option>
+                </select>
+    
+                <label for="expense-amount">Amount:</label>
+                <input type="number" id="expense-amount" name="amount" required />
+                <button type="submit">Add Expense</button>
+            </form>
+            <ul id="expense-list"></ul>
+        </div>
+    
+        <!-- Data Visualization Section -->
+        <div id="data-visualization">
+            <h2>Data Visualization</h2>
+            <canvas id="startupChart"></canvas>
+        </div>
+    
+        <!-- AI Financial Advisor Section -->
+        <div id="ai-financial-advisor" class="AI-setting-items" style="background-color: #f4f4f9">
+            <h2>AI Financial Advisor</h2>
+            <p class="setting-text">Your spending looks balanced. 😊</p>
+        </div>
+    
+        <!-- Taxes Calculator Section -->
+        <div id="tax-calculator">
+            <h2>Taxes Calculator</h2>
+            <form>
+                <label for="income-amount">Income:</label>
+                <input type="number" id="income-amount" name="income" required />
+                
+                <label for="tax-rate">Tax Rate:</label>
+                <input type="number" id="tax-rate" name="taxRate" required />
+                <button type="submit">Calculate</button>
+    
+                <!-- Tax Calculation Results -->
+                <div id="tax-amount">
+                    <p>Tax Amount: ₹0</p>
+                </div>
+                <div id="net-income">
+                    <p>Net Income: ₹0</p>
+                </div>
+    
+                <!-- Tax Breakdown -->
+                <div id="tax-breakdown">
+                    <p>Tax Breakdown:</p>
+                    <table>
+                        <tr>
+                            <th>Income Threshold</th>
+                            <th>Tax Amount</th>
+                        </tr>
+                        <tr>
+                            <td>Income above ₹1,000,000.00</td>
+                            <td>15%</td>
+                        </tr>
+                        <tr>
+                            <td>Income above ₹700,000.00</td>
+                            <td>10%</td>
+                        </tr>
+                        <tr>
+                            <td>Income above ₹500,000.00</td>
+                            <td>7%</td>
+                        </tr>
+                        <tr>
+                            <td>Income above ₹300,000.00</td>
+                            <td>3%</td>
+                        </tr>
+                    </table>
+                </div>
+    
+                <div id="tax-to-pay">
+                    <p>Tax To Pay: <span>₹0</span></p>
+                </div>
+                <div id="amount-left">
+                    <p>Amount Left After Pay: <span>₹0</span></p>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!--Section for sticky notes-->
+    <section id="sticky-notes">
+      <div class="container1">
+            
+        <div class="notes-section">
+            <div class="header sticky-heading">
+                <h1 style="text-align: center">Financial Notes</h1>
+            </div>
+            <div class="note-writer">
+                <textarea name="notes" id="note-writter-tab" cols="70" rows="10" placeholder="//write a note here"></textarea>
+                <input type="color" id="note-bg" >
+            </div>
+            <div class="text-formatter">
+                <button class="text-format-btn" id="bold">B</button>
+                <button class="text-format-btn" id="italic">I</button>
+                <button class="text-format-btn" id="underline">U</button>
+                <button class="text-format-btn" id="color">Color</button>
+                <button class="text-format-btn" id="size">Size</button>
+                <button class="text-format-btn" id="undo">Undo</button>
+            </div>
+            <button id="add-note-btn">
+                Add Notes
+            </button>
+        </div>
+
+        <!-- Notes will be displayed here -->
+        <div class="notes-display">
+            <div class="header">
+                <h1>Your Notes</h1>
+            </div>
+
+            <div id="text-message">
+                <p >You have not added a note yet.</p>
+            </div>
+
+            <div id="notes-list">
+                <audio src="../Audio/pick-92276.mp3" id="added-sound"></audio>
+                <!-- Notes will be added dynamically here -->
+                 <p id="notes">
+
+                 </p>
+                 <button id="remove">
+                    <audio src="../Audio/mag-remove-92075.mp3" id="remove-sound"></audio>
+                 </button>
+            </div>
+            
+    </div>
+    </section>
+  <!-- Payment Options Section -->
+  <section id="expertChat">
+    <div class="chat">
+        <div class="header">
+            <h1>Expert Chat</h1>
+            <div class="nav-sec">
+                <ul>
+                    <li><a href="#chat">Chat</a></li>
+                    <li><a href="#payment-options" id="payment-options-link">Payment Options</a></li>
+                    <li><a href="#startup-expense">Start-Up Finance</a></li>
+                    <li><a href="#expertChat">Expert Chat</a></li>
+                </ul>
+            </div>
+            <div class="darkMode">
+                <button id="dark-toggle">Night Mode</button>
+            </div>
+        </div>
+        <div class="chat-content">
+            <div class="chat-messages" id="chat-messages">
+                <!-- Add chat messages here -->
+            </div>
+            <div class="message-input">
+                <input type="text" id="message-input" placeholder="Type your message here" class="form-control">
+                <button type="button" id="send-message">Send</button>
+                <div id="error-message" style="color: red;"></div>
+                <div id="loading-spinner" style="display: none;">
+                    <div class="spinner-border text-primary" role="status" aria-hidden="true"></div>
+                    <span id="spinner-text">Loading...</span>
+                </div>
+                <div id="message-send-success" style="color: green;"></div>
+                <div id="file-upload-success" style="color: green;"></div>
+                <div id="file-upload-error" style="color: red;"></div>
+                <div id="image-upload-success" style="color: green;"></div>
+                <div id="image-upload-error" style="color: red;"></div>
+
+                <div id="file-upload-container">
+                    <label for="file-upload">
+                        <i class="fas fa-upload"></i>
+                        Upload File
+                    </label>
+                    <input type="file" id="file-upload" accept=".doc,.docx,.pdf,.jpg,.jpeg,.png" style="display: none;">
+                    <div id="file-upload-success-message" style="color: green;"></div>
+                    <div id="file-upload-error-message" style="color: red;"></div>
+                </div>
+
+                <div id="image-upload-container">
+                    <label for="image-upload">
+                        <i class="fas fa-upload"></i>
+                        Upload Image
+                    </label>
+                    <input type="file" id="image-upload" accept=".jpg,.jpeg,.png" style="display: none;">
+                    <div id="image-upload-success-message" style="color: green;"></div>
+                    <div id="image-upload-error-message" style="color: red;"></div>
+                </div>
+            </div>
+            <div class="payment-page" id="payment-options" style="display: none;">
+              <h2>Chat with Our Expert at only Rs. 199/-</h2>
+              <button id="pay-button">Pay</button>
+              
+              <div class="payment-options" id="payment-options-container" style="display: none;">
+                  <h3>Select Payment Method:</h3>
+                  <br>
+                  <div class="payment-methods">
+                      <button onclick="showPaymentForm('upi')">UPI</button>
+                      <button onclick="showPaymentForm('card')">Credit/Debit Card</button>
+                      <button onclick="showPaymentForm('netbanking')">Net Banking</button>
+                      <button onclick="showPaymentForm('wallet')">Wallet</button>
+                  </div>
+                  
+                  <!-- UPI Payment Form -->
+                  <div class="payment-form" id="upi-form" style="display: none;">
+                      <h4>Enter UPI ID:</h4>
+                      <input type="text" id="upi-id" placeholder="Enter UPI ID" required>
+                      <br>
+                      <h2>
+                        Or
+                      </h2>
+                      <br>
+                      <h1>
+                        Scan Qr Code
+                      </h1>
+                      <br>
+                      <img src="./assests/qrcode_124629747_bd28f47f5f26e89d29dfb58c447d824b.png" id="qrcode"/><br>
+
+                      <button onclick="processPayment('UPI')">Submit UPI Payment</button>
+                  </div>
+                  
+                  <!-- Card Payment Form -->
+                  <div class="payment-form" id="card-form" style="display: none;">
+                      <h4>Credit/Debit Card Details:</h4>
+                      <form action="#">
+                        <input type="text" id="card-number" placeholder="Card Number" required>
+                        <input type="text" id="card-holder-name" placeholder="Cardholder Name" required>
+                        <input type="text" id="expiry-date" placeholder="MM/YY" required>
+                        <input type="text" id="cvv" placeholder="CVV" required>
+                      </form>
+                      <button onclick="processPayment('Card')">Submit Card Payment</button>
+                  </div>
+                  
+                  <!-- Net Banking Payment Form -->
+                  <div class="payment-form" id="netbanking-form" style="display: none;">
+                      <h4>Select Bank:</h4>
+                      <select id="bank-selection">
+                          <option value="">Choose Bank</option>
+                          <option value="bank1">Axis Bank</option>
+                          <option value="bank2">ICICI Bank</option>
+                          <option value="bank3">SBI</option>
+                      </select>
+                      <button onclick="processPayment('Net Banking')">Submit Net Banking Payment</button>
+                  </div>
+                  
+                  <!-- Wallet Payment Form -->
+                  <div class="payment-form" id="wallet-form" style="display: none;">
+                      <h4>Choose Wallet:</h4>
+                      <select id="wallet-selection">
+                          <option value="">Select Wallet</option>
+                          <option value="wallet1">Phone Pe</option>
+                          <option value="wallet2">Google Pay</option>
+                          <option value="wallet3">FreeCharge</option>
+                      </select>
+                      <button onclick="processPayment('Wallet')">Submit Wallet Payment</button>
+                  </div>
+                  
+                  <div id="payment-status" style="color: green;"></div>
+              </div>
+          </div>
+          
+            </div>
+        </div>
+    </div>
+</section>
+    <div class="allDelete">
+      <button id="delete-all-btn">Delete All</button>
+    </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="expert.js"></script>
+    <script src="notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
+    <script type="module">
+      import { GoogleGenerativeAI } from "@google/generative-ai";
+      const API_KEY = "AIzaSyDeyA863E10za8PhYsXyKSjJPWZb62u0No"; // Replace with your actual API key
+      const genAI = new GoogleGenerativeAI(API_KEY);
+
+      async function getGeminiResponse() {
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        var userInput = document.querySelector("#input-field").value;
+        const prompt = userInput;
+
+        try {
+          const result = await model.generateContent(prompt);
+          const response = await result.response;
+          const text = await response.text();
+          const lines = text.split("\n");
+
+          const formatMarkdown = (line) => {
+            // Handle headings
+            if (line.startsWith("# ")) {
+              return `<h1 style="font-weight: bold;">${line
+                .slice(2)
+                .trim()}</h1><br/>`;
+            } else if (line.startsWith("## ")) {
+              return `<h2 style="font-weight: bold;">${line
+                .slice(3)
+                .trim()}</h2><br/>`;
+            } else if (line.startsWith("### ")) {
+              return `<h3 style="font-weight: bold;">${line
+                .slice(4)
+                .trim()}</h3><br/>`;
+            }
+
+            // Handle code blocks
+            if (line.startsWith("```")) {
+              const language = line.slice(3).trim();
+              return `<div class="code-block"><pre><code class="${language}">`;
+            } else if (line === "```") {
+              return `</code></pre></div>`;
+            }
+
+            // Handle regular paragraphs
+            return `<p>${line.trim()}</p>`;
+          };
+
+          // Process the lines and format accordingly
+          const formattedLines = lines.reduce((acc, line) => {
+            const formattedLine = formatMarkdown(line);
+            if (formattedLine) {
+              acc.push(formattedLine);
+            }
+            return acc;
+          }, []);
+
+          const htmlOutput = formattedLines.join(" ");
+
+          // Clear previous response and insert the new one
+          document.querySelector(".user-data").innerHTML = `
+      <div class="gemini">
+        <div class="user-prompt">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlJqngNJ42uWE0Zy6S6rHTuW8pn6p-cuogyQ&s" alt="User Account">
+          <h3 style="color: white">${prompt}</h3>
+        </div>
+        <div class="gemini-response">
+          <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/google-gemini-icon.png" class="user-side"/>
+          <div>${htmlOutput}</div>
+        </div>
+      </div>`;
+
+          // Add code  functionality
+          const codeElements = document.createElement(".code-block code");
+          let codeText = "";
+          codeElements.forEach((code) => {
+            codeText += code.textContent;
+          });
+        } catch (error) {
+          console.error("Error generating response:", error);
+        }
+
+        document.querySelector("#input-field").value = "";
+        document.querySelector("#input-field").style.color = "white";
+      }
+
+      const enter = document.querySelector("#btn");
+      enter.addEventListener("click", () => {
+        if (document.querySelector("#input-field").value === "") {
+          alert("Please enter your prompt");
+        } else {
+          document.querySelector(".header").style.display = "none";
+          document.querySelector(".cards").style.display = "none";
+          setTimeout(() => {
+            document.querySelector(".user-data").innerHTML = `
+      <div class="gemini"><p><h2>Generating Response....</h2></p></div>`;
+          }, 1000);
+          setTimeout(() => {
+            getGeminiResponse();
+          }, 2000);
+        }
+      });
+
+      const sideNav = document.querySelector("nav");
+      let menu = document.querySelector(".menu-icon");
+
+      menu.addEventListener("click", () => {
+        sideNav.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

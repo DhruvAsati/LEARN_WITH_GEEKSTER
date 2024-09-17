@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <link rel="shortcut icon" href="./assests/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Crypto India</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100%;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        header{
+            width: 100%;
+        }
+        header nav{
+            padding: 5px;
+
+        }
+        .search{
+            width: 600px;
+            height: 60px;
+        }
+        .searchInput{
+            width: 100%;
+            height: 100%;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 18px;
+            background-color: #ddd;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .searchInput:focus{
+            outline: none;
+            border: 1px solid #000;
+        }
+        .searchInput::placeholder{
+            color: #666;
+            font-size: 18px;
+            text-align: center;
+        }
+        #SearchedCoins{
+            width: 90%;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px auto;
+            padding: 0.5rem 1rem;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #000 transparent;
+            scroll-behavior: smooth;
+            border-radius: 10px;
+            background-image: linear-gradient(to left, rgba(0,0,0,0.6), rgba(0,0,0,0.7));
+
+        }
+        #SearchedCoins h1{
+            margin: 0;
+            font-size: 24px;
+            color: white;
+            text-align: center;
+        }
+        .coin-card{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: antiquewhite;
+            border-radius: 10px;
+            box-shadow: 0 0 10px 0 rgba(255,255,255, 0.5);
+        }
+        .imgHeader{
+            display: flex;
+            align-items: center;
+        }
+        .imgHeader img{
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        h3{
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .info-container button{
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+            &:hover{
+                background-color: #45a049;
+            }
+        }
+        footer{
+            width: 100%;  
+            margin-top: -1rem;          
+        }
+        footer p{
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="./index.html"><img src="./assests/logo.jpg" alt="logo"></a>
+                <h1>Crypto India</h1>
+            </div>
+            <form class="search" >
+                <input id="searchBtn" class="searchInput" type="search" placeholder="Search Crypto">
+            </form>
+        </nav>
+    </header>
+    <div id="SearchedCoins">
+            <h1>
+                Search Your Favorite Crypto Currency
+            </h1>
+    </div>
+    <footer>
+        <p>�� 2024 Crypto India. All rights reserved. Created by <b>
+            Dhruv Asati
+        </b></p>
+        <div class="social-media">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/aebede4c31.js" crossorigin="anonymous"></script>
+    <script src="search.js"></script>
+</body>
+</html>

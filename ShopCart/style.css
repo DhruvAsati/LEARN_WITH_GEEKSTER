@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
+}
+main{
+    width: 50vw;
+    height: 70vh;
+    margin: 3rem auto;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 3rem;
+}
+.content{
+    width: 50%;
+    margin-right: 2rem;
+}
+.small{
+    width: 100px;
+    height: 15px;
+    padding: 0.2rem;
+    font-size: 0.8rem;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.content h2{
+    margin-bottom: 2rem;
+}
+
+.content > p{
+    margin: 1rem 0;
+    font-size: 0.8rem;
+    color: darkgrey;
+    font-weight: bold;
+}
+.Add-cart{
+    width: 100%;
+}
+.Add-cart > button{
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(30, 107, 239);
+    box-shadow: 0 5px 1px blue;
+    font-weight: bold;
+    border: none;
+    margin-bottom: 1rem;
+}
+.stock{
+    width: 32%;
+    display: flex;
+    align-items: center;
+   justify-content: space-between;
+   margin-bottom: 1.5rem;
+}
+.dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: green;
+}
+.cart-btn{
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn1 > button{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 180px;
+    height: 50px;
+    background-color: white;
+    border-radius: 5px;
+    font-weight: 500;
+    border:1px solid rgb(177, 170, 170);
+}

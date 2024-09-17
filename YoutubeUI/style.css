@@ -1,0 +1,255 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --black : #000000;
+    --grey: #3d3d3d;
+    --white: #efefef;
+}
+body{
+    background-color: var(--black);
+}
+main{
+    width: 100%;
+    height: 100vh;
+    margin-top: 0;
+    display: flex;
+}
+nav{
+    width: 15%;
+    height: 100vh;
+    padding-left: 20px;
+    margin-top: 10px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    scrollbar-color: var(--grey) var(--black);
+}
+.logo{
+   width: 90px;
+   height: 25px;
+   margin-left: 15px;
+}
+.logo-menu{
+   display: flex;
+   height: 2.5rem; 
+   top: 0px;
+   position: sticky;
+   background-color: var(--black);
+}
+.side-bar{
+  margin-top: 10px;
+   
+}
+.side-items{
+    width: 100%;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    padding: 10px;
+    color: var(--white);
+    cursor: pointer;
+   
+}
+hr{
+    margin-right: 10px;
+    border: 0.2px solid rgb(69, 66, 66);
+}
+.side-icons{
+    padding-right: 10px;
+}
+.side-items:hover{
+    border-radius: 10px;
+    background-color: var(--grey);
+}
+.side-items:first-child{
+    background-color: var(--grey);
+    border-radius: 10px;
+}
+h2{
+    display: flex;
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-top: 10px;
+}
+section{
+    width: 85%;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    scrollbar-color: var(--grey) var(--black);
+}
+.header{
+    display: flex;
+    height: 4rem;
+    justify-content: space-between;
+    top: 0;
+    position: sticky;
+    background-color: var(--black);
+      
+}
+
+.search{
+    margin-left: 10%;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    width: 65%;
+    height: 2.5rem;
+}
+#search-bar{
+    width: 600px;
+    height: 35px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.search-icon{
+    width: 50px;
+    height: 35px;
+    padding-top: 3px;
+    padding-left: 10px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: var(--grey);
+    cursor: pointer;
+}
+.micro > button{
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    margin-left: 20px;
+    background-color: var(--black);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.account{
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.account-icons{
+    padding-right: 10px;
+}
+.heading{
+    color: white;
+    top: 4.0rem;
+    position: sticky;
+    background-color: var(--black);
+}
+.head-sec{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+.head-items{
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 0.5rem 1rem;
+    background-color: var(--grey);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.head-items:first-child{
+    background-color: var(--white);
+    color: var(--black);
+}
+.head-items:hover{
+    background-color: rgb(156, 153, 153);
+}
+.video-section{
+    margin-left: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.video{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin-top: 10px;
+    width: 400px;
+    height: 350px;
+    cursor: pointer;
+}
+.video:hover{
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px var(--grey);
+  
+}
+.video-img{
+   margin-left: 10px;
+   width: 400px;
+   border-radius: 10px;
+}
+.title{
+    color: var(--white);
+    display: flex;
+    margin-left: 15px;
+}
+.channel-name{
+    display: flex;
+    margin-left: 8%;
+    margin-top: 5px;
+    align-items: center;
+    color: var(--white);
+}
+.channel-icon{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.views{
+    margin-left: 8%;
+    margin-top: 5px;
+    color: var(--white);
+}
+.youtube-icons{
+    width: 100%;
+    font-size: 14px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    color: var(--white);
+}
+.youtube-icons:hover{
+    border-radius: 10px;
+    background-color: var(--grey);
+}
+
+@media(max-width:650px){
+    .logo{
+       display: none;
+    }
+    .header{
+        width: 80%;
+    }
+    #search-bar{
+        display: none;
+    }
+    .side-bar{
+        display: none;
+    }
+    .video-section .video{
+        width: 100%;
+    }
+    .menu:hover + .side-bar, 
+    .menu:active + .side-bar{
+        display: block;
+        width: 20%;
+        position: relative;
+    }
+    
+}

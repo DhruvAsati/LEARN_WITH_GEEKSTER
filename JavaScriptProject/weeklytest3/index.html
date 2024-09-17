@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>shopping</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        .quantity{
+           margin-left: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 50px;
+        }
+        button:hover {
+            background-color: #ccc;
+        }
+        button.delete {
+            color: red;
+        }
+        button.clear {
+            color: blue;
+        }
+        button.checkout {
+            color: green;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .products{
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border: 5px solid darkgreen;
+        }
+        .cart-item{
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            border: 5px solid darkgreen;
+            
+        }
+       
+       
+
+    </style>
+</head>
+<body>
+
+    
+    <div class="container">
+      
+        
+        <div class="products">  
+            <h1>Products</h1>
+        </div>
+        <div class="cart-item">
+            <h2>Cart</h2>
+            <div class="carts">
+                <p>No order is added yet !</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Your JavaScript code here...\
+        let products = [{
+            id : 1,
+            name: "Product 1",
+            price: 100,
+
+        },
+         {
+            id : 2,
+            name: "Product 2",
+            price: 200,
+         },
+         {
+            id : 3,
+            name: "Product 3",
+            price: 300,
+         }
+    
+    ];
+
+
+        let cart = [];
+        let cartContainer = document.querySelector('.carts');
+        let productContainer = document.querySelector('.products');
+            
+        // create product items
+        products.forEach(product => {
+            let productItem = document.createElement('div');
+            productItem.style.width = "90%";
+            productItem.style.backgroundColor = "grey";
+            productItem.style.padding = "10px";
+            productItem.style.fontSize = "1.1rem";
+            productItem.style.wordSpacing = "10px";
+            productItem.style.margin = "10px 0";
+            productItem.textContent = product.name +' -'+ product.price;
+            let increasementBtn = document.createElement('button');
+            let decreasementBtn = document.createElement('button');
+            let quantity = document.createElement('text');
+            increasementBtn.textContent = '+';
+            decreasementBtn.textContent = '-';
+            quantity.textContent = '0'; 
+            increasementBtn.classList.add('increase');
+            decreasementBtn.classList.add('decrease');
+            quantity.classList.add('quantity');
+
+            //adding buttons for all items as it is not showning with current code
+            productItem.appendChild(decreasementBtn);
+            productItem.appendChild(quantity);
+            productItem.appendChild(increasementBtn);
+            productContainer.appendChild(productItem);
+
+            increasementBtn.addEventListener("click", function(e) {
+                //need to add product with same styling
+                let target = e.target;
+                let productItem = target.parentElement;
+                let productId = parseInt(productItem.textContent.split(' - ')[0].split(' ')[1]);
+                let product = products.find(p => p.id === productId);
+                let index = cart.findIndex(p => p.id === productId);
+                if(index === -1){
+                    cart.push({id: productId, name: product.name, price: product.price, quantity: 1});
+                } else{
+                    cart[index].quantity++;
+                }
+                quantity.textContent = cart.find(p => p.id === productId).quantity;
+                renderCart();
+    
+
+            
+        });
+
+       decreasementBtn.addEventListener("click", function(e) {
+           let target = e.target;
+           let productItem = target.parentElement;
+           let productId = parseInt(productItem.textContent.split(' - ')[0].split(' ')[1]);
+           let product = products.find(p => p.id === productId);
+           let index = cart.findIndex(p => p.id === productId);
+            if(index!== -1 && cart[index].quantity > 0){
+                cart[index].quantity--;
+            }
+            quantity.textContent = cart.find(p => p.id === productId).quantity;
+            renderCart();
+
+        });
+
+
+        });
+
+      
+        
+        function renderCart(){
+            //clearing cart before rendering new items
+            cartContainer.innerHTML = '';
+            cart.forEach(item => {
+                let cartItem = document.createElement('div');
+                 cartItem.style.width = "100%";
+                 cartItem.style.backgroundColor = "grey";
+                 cartItem.style.padding = "10px";
+                 cartItem.style.fontSize = "1.1rem";
+                 cartItem.style.wordSpacing = "10px";
+                 cartItem.style.margin = "10px 0";
+                 cartItem.textContent = item.name +'  ' + item.quantity +' x '+ item.price;
+                 cartContainer.appendChild(cartItem);
+                
+            });
+
+            let cartSum = document.createElement('div');
+                cartSum.textContent = 'Cart Total :'+ cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+                cartContainer.appendChild(cartSum);
+                cartSum.style.color = '#fe5e5e';
+                cartSum.style.fontSize = '1.5rem';
+        }
+
+       
+        
+        
+        
+        
+    </script>
+    
+</body>
+</html>

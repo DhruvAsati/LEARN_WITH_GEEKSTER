@@ -1,0 +1,352 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    top: 0;
+    position: sticky;
+    background-color: white;
+  
+}
+nav .logo > img{
+    width: 120px;
+    height: 45px;
+}
+.search{
+    width: 35%;
+    height: 80px;
+}
+.search > input{
+    width: 100%;
+    height: 100%;
+    margin-top: -10px;
+    background-color:#f0f0f0;
+    border: none;
+    color: #858484;
+    cursor: pointer;
+    border-radius: 5px;
+}
+nav .user-icon{
+    width: 15%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+}
+nav .user-icon span{
+    font-size: 2rem;
+    color: rgb(194, 192, 192);
+    font-weight: 200;
+}
+nav .user-icon span:hover{
+    color: orange;
+    fill: orange;
+}
+
+.nav .search input::placeholder{
+   font-size: 2rem;
+}
+.list-section{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+    padding: 1rem;
+    background-color: white;
+}
+
+.list-section h3{
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.list-section ul{
+    width: 22%;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    align-items: flex-start;
+   
+}
+
+.list-section ul li, .list-section ul li a{
+    margin-right: 1rem;
+    font-size: 1.3rem;
+    color: #dbdbdb;
+    font-weight: lighter;
+    cursor: pointer;
+    text-decoration: none;
+    
+}
+.list-section ul li a:hover{
+   
+    color: orange;
+    
+}
+.store-locator {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
+}
+.store-locator small{
+    padding-right: 5px;
+    color: #a09b9b;
+   
+}
+.store-locator span{
+    color: grey;
+   
+}
+.store-locator span:hover{
+    color: orange;
+}
+main{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+main .main-content{
+    width: 70%;
+}
+main .side-menu{
+    width: 20%;
+    height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f0f0f0;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    margin-top: -1rem;
+    margin-left: 5rem;
+}
+main .side-menu ul{
+  list-style: none;
+}
+main .side-menu ul li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem 0;
+    cursor: pointer;
+    color: #8d8686;
+}
+main .side-menu .side-menu-icons{
+    width: 50px;
+    height: 50px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+main .side-menu ul .icon-hover:hover{
+    fill: orange;
+}
+main .side-menu ul li:hover{
+   color: rgb(57, 54, 54);
+   font-weight: 300
+}
+.main-content .offer-images{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 1rem;
+    margin-top: 1rem;
+}
+.main-content .offer-images2 img{
+    margin-top: 1rem;
+    width: 80%;
+    height: 280px;
+    margin-bottom: 20px;
+}
+.main-content .offer-images2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.banner{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin-left: 10%;
+    margin-bottom: 3rem;
+}
+.banner img{
+    width: 80%;
+}
+.Community{
+    width: 100%;
+    height: 40vh;
+    background-color: #f0f0f0;
+}
+.Community h1{
+    text-align: center;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+.Community .community-offer{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+.sub-section{
+    width: 85%;
+    margin: 5% 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+.sub-section-content{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    gap: 20px;
+}
+.download{
+    display: flex;
+    gap: 10px;
+}
+footer{
+    width: 100%;
+    height: 70vh;
+    background-color: #f0f0f0;
+    
+}
+footer .footer-container{
+    display: flex;
+    justify-content: center;
+}
+footer .footer-content{
+    padding: 3rem;
+}
+.footer-links ul{
+    list-style-type: none;
+}
+.footer-links ul li{
+    margin-top: 10px;
+    font-size: small;
+}
+
+/* Offer Section CSS */
+
+h1{
+    text-align: center;
+    font-size: 3.5rem;
+}
+
+.offer-content{
+    width: 80%;
+    height: 90vh;
+    margin-left: 10vw;
+    padding: 2rem  1rem;
+    background-color: #f0f0f0;
+}
+.offer-content h3{
+    color: #a09b9b;
+}
+.shop-card{
+   width: 100%;
+   height: 70vh;
+   display: flex;
+   justify-content: flex-start;
+   margin-left: 15px;
+
+}
+.shop-card .card > img{
+    width: 250px;
+    height: 250px;
+    margin-bottom: 1rem;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    height: 100%;
+    padding: 2rem  1rem;
+    margin: 1rem;
+    box-shadow: 2px 2px 2px 1px grey;
+    background-color: white;
+    transition: all 0.5s ease-in-out;
+}
+.card:hover{
+    transform: scale(1.05);
+}
+.content{
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+
+}
+.content h4{
+    font-size: 18px;
+    margin-bottom: 1rem;
+}
+.content p{
+
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.content p .price-red{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: rgb(150, 26, 26);
+}
+.offer-message{
+    width: 100%;
+    height:30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+.offer-message h2{
+    font-size: 2rem;
+}
+.offer-message img{
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    border-radius: 50%;
+}
+.offer-message p{
+    font-size: 2rem;
+}
+.card .content .offer-card-banner{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    box-shadow: 1px 1px 1px 0.5px grey;
+    margin: 1.5rem 0;
+    margin: auto;
+}
+.card .content .offer-card-banner span{
+    font-size: 15px;
+    color: orange;
+}
+.card .content .offer-card-banner p{
+    width: 100%;
+    font-size: 0.6rem;
+    text-align: justify;
+    font-weight: 800;
+    
+}
+.card .content button{
+    width: 80px;
+    height: 30px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
